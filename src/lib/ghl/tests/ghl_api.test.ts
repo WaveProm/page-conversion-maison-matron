@@ -1,13 +1,13 @@
 import { describe, expect, it } from "vitest";
 import type { ghl_config } from "../config";
-import { create_opportunity, upsert_contact } from "../ghl_api";
-import type { contact_payload, opportunity_payload } from "../payloads";
+import { post_form_webhook, upsert_contact } from "../ghl_api";
+import type { contact_payload, webhook_payload } from "../payloads";
 
 const config: ghl_config = {
   api_token: "SECRET-TOKEN",
   location_id: "loc_1",
-  pipeline_id: "pipe_1",
-  pipeline_stage_id: "stage_1",
+  form_webhook_url:
+    "https://services.leadconnectorhq.com/hooks/loc_1/webhook-trigger/hook_1",
 };
 
 const contact: contact_payload = {
@@ -17,13 +17,12 @@ const contact: contact_payload = {
   customFields: [{ id: "field_1", fieldValue: "Hello" }],
 };
 
-const opportunity: opportunity_payload = {
-  pipelineId: "pipe_1",
-  locationId: "loc_1",
-  name: "Jane Doe",
-  status: "open",
-  contactId: "contact_1",
-  pipelineStageId: "stage_1",
+const lead: webhook_payload = {
+  contact_id: "contact_1",
+  given_name: "Jane",
+  email: "jane@example.com",
+  gclid: "TEST-CLIC-001",
+  gbraid: "",
 };
 
 type call = { url: string; init: RequestInit | undefined };
@@ -130,18 +129,64 @@ describe("upsert_contact", () => {
   });
 });
 
-describe("create_opportunity", () => {
-  it("posts the opportunity to /opportunities/ and returns its id", async () => {
+describe("post_form_webhook", () => {
+  it("posts the payload as JSON to the webhook URL, without the token, and answers ok on a 2xx", async () => {
     const { calls, fetch } = posting([
-      () => Response.json({ opportunity: { id: "opp_1" } }, { status: 201 }),
+      () => Response.json({ status: "Success: request sent" }),
     ]);
-    await expect(
-      create_opportunity(opportunity, config, { fetch }),
-    ).resolves.toEqual({ ok: true, opportunity_id: "opp_1" });
-    expect(calls[0]?.url).toBe(
-      "https://services.leadconnectorhq.com/opportunities/",
-    );
-    expect(body_of(calls[0])).toEqual(opportunity);
-    expect(headers_of(calls[0]).get("version")).toBe("v3");
+    await expect(post_form_webhook(lead, config, { fetch })).resolves.toEqual({
+      ok: true,
+    });
+    expect(calls).toHaveLength(1);
+    expect(calls[0]?.url).toBe(config.form_webhook_url);
+    expect(calls[0]?.init?.method).toBe("POST");
+    const headers = headers_of(calls[0]);
+    expect(headers.get("content-type")).toBe("application/json");
+    expect(headers.get("authorization")).toBeNull();
+    expect(headers.get("version")).toBeNull();
+    expect(body_of(calls[0])).toEqual(lead);
+    expect(JSON.stringify(calls[0])).not.toContain("SECRET-TOKEN");
+  });
+
+  it("refuses a 4xx, reports 5xx, a network failure and a timeout as unreachable, and never quotes the URL", async () => {
+    const gone = await post_form_webhook(lead, config, {
+      fetch: posting([ghl_error(404, "Workflow not found")]).fetch,
+    });
+    expect(gone).toEqual({
+      ok: false,
+      code: "refused",
+      message: "GHL refused the form webhook: HTTP 404, Workflow not found",
+    });
+    for (const step of [
+      ghl_error(503, "Service Unavailable"),
+      network_failure,
+    ]) {
+      await expect(
+        post_form_webhook(lead, config, { fetch: posting([step]).fetch }),
+      ).resolves.toMatchObject({ ok: false, code: "unreachable" });
+    }
+    const timed_out = await post_form_webhook(lead, config, {
+      fetch: hanging,
+      timeout_ms: 10,
+    });
+    expect(timed_out).toEqual({
+      ok: false,
+      code: "unreachable",
+      message: "GHL unreachable for the form webhook: timeout after 10 ms",
+    });
+  });
+
+  it("refuses without any request when GHL_FORM_WEBHOOK_URL is blank or not a URL", async () => {
+    for (const form_webhook_url of ["", "hooks/loc_1"]) {
+      const { calls, fetch } = posting([]);
+      await expect(
+        post_form_webhook(lead, { ...config, form_webhook_url }, { fetch }),
+      ).resolves.toEqual({
+        ok: false,
+        code: "refused",
+        message: "GHL_FORM_WEBHOOK_URL is not a URL",
+      });
+      expect(calls).toHaveLength(0);
+    }
   });
 });

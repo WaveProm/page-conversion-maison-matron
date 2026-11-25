@@ -1,34 +1,38 @@
 import "server-only";
 import { after } from "next/server";
 import { form_fields_of } from "@/lib/form_contract/form_fields";
+import { with_visit_origin } from "@/lib/gads/visit_origin";
 import { type ghl_config, read_config } from "./config";
 import type { delivery_outcome, delivery_result } from "./delivery_result";
-import { type contact_fields, contact_table } from "./form_table";
-import { create_opportunity, type transport, upsert_contact } from "./ghl_api";
-import { contact_payload_of, opportunity_payload_of } from "./payloads";
+import { contact_table, custom_field_table, webhook_table } from "./form_table";
+import {
+  custom_field_ids,
+  post_form_webhook,
+  type transport,
+  upsert_contact,
+} from "./ghl_api";
+import { contact_payload_of, webhook_payload_of } from "./payloads";
 
 export const deliver_lead = async (
-  fields: contact_fields,
+  form: FormData,
   config: ghl_config,
   overrides: Partial<transport> = {},
 ): Promise<delivery_outcome> => {
+  const keyed = form_fields_of(form, custom_field_table);
+  const ids = await custom_field_ids(Object.keys(keyed), config, overrides);
   const contact = await upsert_contact(
-    contact_payload_of(fields, config),
+    contact_payload_of(form_fields_of(form, contact_table), config, keyed, ids),
     config,
     overrides,
   );
   if (!contact.ok) return contact;
-  const opportunity = await create_opportunity(
-    opportunity_payload_of(fields, config, contact.contact_id),
+  const webhook = await post_form_webhook(
+    webhook_payload_of(form_fields_of(form, webhook_table), contact.contact_id),
     config,
     overrides,
   );
-  if (!opportunity.ok) return opportunity;
-  return {
-    ok: true,
-    contact_id: contact.contact_id,
-    opportunity_id: opportunity.opportunity_id,
-  };
+  if (!webhook.ok) return webhook;
+  return { ok: true, contact_id: contact.contact_id };
 };
 
 const report = (outcome: delivery_outcome) => {
@@ -38,7 +42,9 @@ const report = (outcome: delivery_outcome) => {
 export const deliver_to_ghl = (form_data: FormData): delivery_result => {
   const config = read_config();
   if (!config.ok) return config;
-  const fields = form_fields_of(form_data, contact_table);
-  after(async () => report(await deliver_lead(fields, config.config)));
+  after(async () => {
+    const form = await with_visit_origin(form_data);
+    report(await deliver_lead(form, config.config));
+  });
   return { ok: true };
 };

@@ -19,6 +19,7 @@ export const submit_lead = async (
   deliver_to_ghl(form_data);
   const confirmation = await send_confirmation(form_data, form_id);
   await dispatch;
-  if (!confirmation.ok) return { status: "failed" };
+  if (!confirmation.ok && confirmation.code !== "disabled")
+    return { status: "failed" };
   redirect("/confirmation");
 };

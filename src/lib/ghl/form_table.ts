@@ -1,5 +1,8 @@
 import "server-only";
-import type { dictionary_key } from "@/lib/form_contract/dictionary";
+import {
+  type dictionary_key,
+  dictionary_key_schema,
+} from "@/lib/form_contract/dictionary";
 
 export type contact_field =
   | "firstName"
@@ -24,10 +27,24 @@ export const contact_table: Record<contact_field, dictionary_key> = {
   freetext: "freetext",
 };
 
-const fallback_name = "Lead";
+export const custom_field_table = {
+  "contact.gclid_google": "gclid",
+  "contact.gbraid": "gbraid",
+  "contact.wbraid": "wbraid",
+  "contact.fbclid": "fbclid",
+  "contact.utm_source": "utm_source",
+  "contact.utm_campaign": "utm_campaign",
+  "contact.utm_content": "utm_content",
+  "contact.utm_term": "utm_term",
+  "contact.page_de_provenance": "source_page",
+} satisfies Record<string, dictionary_key>;
 
-export const opportunity_name_of = (fields: contact_fields) =>
-  [fields.firstName, fields.lastName].filter(Boolean).join(" ") ||
-  fields.email ||
-  fields.phone ||
-  fallback_name;
+export type custom_field_key = keyof typeof custom_field_table;
+
+export type custom_fields = Partial<Record<custom_field_key, string>>;
+
+const snake_case = (key: string) => key.replaceAll("-", "_");
+
+export const webhook_table: Record<string, dictionary_key> = Object.fromEntries(
+  dictionary_key_schema.options.map((key) => [snake_case(key), key]),
+);

@@ -9,5 +9,5 @@ export type delivery_failure = {
 export type delivery_result = { ok: true } | delivery_failure;
 
 export type delivery_outcome =
-  | { ok: true; contact_id: string; opportunity_id: string }
+  | { ok: true; contact_id: string }
   | delivery_failure;
