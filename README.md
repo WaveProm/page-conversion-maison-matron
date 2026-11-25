@@ -105,7 +105,8 @@ export const submit_lead = async (
   deliver_to_ghl(form_data);
   const confirmation = await send_confirmation(form_data);
   await dispatch;
-  if (!confirmation.ok) return { status: "failed" };
+  if (!confirmation.ok && confirmation.code !== "disabled")
+    return { status: "failed" };
   redirect("/confirmation");
 };
 ```
@@ -118,7 +119,7 @@ export const submit_lead = async (
 | GHL      | `deliver_to_ghl(form_data)`                                             | nothing                                                                  | reads the ids of the custom fields, upserts the contact with the visit origin, then posts the whole form to the workflow webhook | `{ ok: true }` when scheduled                     |
 | Mail     | `await send_confirmation(form_data)`                                    | sends the confirmation to the lead, waits                                | mails the whole form to `MAIL_INBOX`            | the confirmation's own result                     |
 
-Only the confirmation mail decides the visitor's fate: sent means `/confirmation`, anything else means `{ status: "failed" }` and the form stays. WhatsApp never changes it: its sends leave right after the rate limit, run beside Meta and the mail, and are awaited so that no send depends on `after()` or on the host keeping the function alive; the visitor waits at most the 10 s timeout beyond the mail. A switched-off mail module is a failure like any other. The copy to the inbox is the safety net: what GHL missed is entered by hand from it.
+Only the confirmation mail decides the visitor's fate: sent means `/confirmation`, a switched-off mail module too, anything else means `{ status: "failed" }` and the form stays. WhatsApp never changes it: its sends leave right after the rate limit, run beside Meta and the mail, and are awaited so that no send depends on `after()` or on the host keeping the function alive; the visitor waits at most the 10 s timeout beyond the mail. The copy to the inbox is the safety net: what GHL missed is entered by hand from it, and a switched-off mail module sends neither the confirmation nor the copy.
 
 Unplug a service: delete its call. Remove it: delete its call, its folder under `src/lib/`, its variables. Nothing else knows it exists. The Meta events are `Lead`, `CompleteRegistration`, `Schedule`, `PageView`, in `src/lib/meta_capi/event_dictionary.ts`; a site with a single conversion sends `Lead`. `PageView`, in `src/components/page_view.tsx`, is mounted by the root layout, `src/app/layout.tsx`, and sends one per full page load.
 
