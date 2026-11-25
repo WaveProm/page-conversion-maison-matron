@@ -165,13 +165,13 @@ A call to the number the site shows, by a visitor come from an ad, is a conversi
 | `NEXT_PUBLIC_GADS_CALL_SEND_TO` | `AW-000000000/exemple`    | the tag id, a slash, the label of the conversion, `gtag('config', send_to, { ... })`          | the same snippet                                                         |
 | `NEXT_PUBLIC_GADS_CALL_NUMBER`  | `+41 00 000 00 00`        | the number exactly as the site shows it, sent as `phone_conversion_number`                    | the site itself                                                          |
 
-The three or nothing: with none set there is no tag, no request to Google and no number rendered, a site that sets none is unchanged. One or two set, or a value of the wrong shape, is no tag either and logs `gads: no Google tag, invalid or missing environment variables: ...`. The values are public, they are printed in the page: they go in the site's environment, never in the code. There is no consent banner in v0.
+The three or nothing: with none set there is no tag and no request to Google, a site that sets none is unchanged. One or two set, or a value of the wrong shape, is no tag either and logs `gads: no Google tag, invalid or missing environment variables: ...`. The values are public, they are printed in the page: they go in the site's environment, never in the code. There is no consent banner in v0.
 
-Sur ce site, le numéro est écrit à la main dans les huit `CallToAction` de `src/app/page.tsx`, en texte `+41 21 539 46 75` et en lien `tel:+41215394675`, exactement la valeur de `NEXT_PUBLIC_GADS_CALL_NUMBER` : les deux doivent rester égaux. `CallNumber`, dans `src/components/call_number.tsx`, rend le même lien depuis la variable et n'a pas d'appelant ici. L'aide Google Ads dit qu'un numéro cliquable se remplace par un rappel : la balise du site passe donc un `phone_conversion_callback`, `forwarding_number_in_links` dans `src/lib/gads/google_tag.ts`, qui écrit le numéro de transfert dans le `href` et dans le texte de chaque lien dont le `href` est le `tel:` de la variable. Le scaffold n'a pas ce rappel.
+Sur ce site, le numéro est écrit à la main dans les huit `CallToAction` de `src/app/page.tsx`, en texte `+41 21 539 46 75` et en lien `tel:+41215394675`, exactement la valeur de `NEXT_PUBLIC_GADS_CALL_NUMBER` : les deux doivent rester égaux. L'aide Google Ads dit qu'un numéro cliquable se remplace par un rappel : la balise du site passe donc un `phone_conversion_callback`, `forwarding_number_in_links` dans `src/lib/gads/google_tag.ts`, qui écrit le numéro de transfert dans le `href` et dans le texte de chaque lien dont le `href` est le `tel:` de la variable. Le scaffold n'a pas ce rappel.
 
 Check it on the site, with the three real values set: open a page ending in `#google-wcc-debug`, which forces the forwarding number to show. The text and the `tel:` link both carry the forwarding number, and Google's debug panel says why when they do not.
 
-Unplug gads: delete `<VisitOrigin />`, `<GoogleTag />`, the `origin_proxy` call and the `with_visit_origin` call. Remove it: also its folder, `src/components/visit_origin.tsx`, `google_tag.tsx` and `call_number.tsx`, the nine keys of the dictionary and `custom_field_table`. `GADS_ENABLED=false` makes it inert: no script, no tag, no cookie, and the nine keys are stripped from what GHL receives.
+Unplug gads: delete `<VisitOrigin />`, `<GoogleTag />`, the `origin_proxy` call and the `with_visit_origin` call. Remove it: also its folder, `src/components/visit_origin.tsx` and `google_tag.tsx`, the nine keys of the dictionary and `custom_field_table`. `GADS_ENABLED=false` makes it inert: no script, no tag, no cookie, and the nine keys are stripped from what GHL receives.
 
 ## 5. Read a result
 
@@ -210,7 +210,7 @@ src/lib/ghl/             deliver.ts is the entry, form_table.ts holds its three 
 src/lib/gads/            visit_origin.ts is the entry at submission, origin_rule.ts the rule both sides run, origin_proxy.ts the cookie, origin_script.ts the inline script, google_tag.ts the Google tag of the call conversion
 src/lib/mail/            send.ts is the entry, form_table.ts holds its table, messages.ts the two mails
 src/lib/whatsapp_dispatch/ dispatch.ts is the entry, cloud_api.ts the call, the body and the guard outside production
-src/components/          logo_rows.tsx, page_view.tsx, visit_origin.tsx, google_tag.tsx, call_number.tsx
+src/components/          logo_rows.tsx, page_view.tsx, visit_origin.tsx, google_tag.tsx
 src/app/global-not-found.tsx   the 404 of the site, with its own stylesheet
 src/app/                 the page served at /: layout.tsx, globals.css, page.tsx, actions.ts, confirmation/page.tsx, _components/ with field.tsx, lead_form.tsx and its sections
 public/                  brand/, fabric-logos/, textures/, video/ and visuals/, one file per asset
