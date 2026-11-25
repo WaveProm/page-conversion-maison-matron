@@ -1,4 +1,5 @@
 import "server-only";
+import { visit_origin_key_schema } from "@/lib/form_contract/dictionary";
 import { send_template, type transport } from "./cloud_api";
 import { read_config } from "./config";
 import type {
@@ -9,9 +10,13 @@ import type {
 
 const next_entry_prefix = "$ACTION_";
 
+const typed_by_the_visitor = (name: string) =>
+  !name.startsWith(next_entry_prefix) &&
+  !visit_origin_key_schema.safeParse(name).success;
+
 const form_values = (form_data: FormData) =>
   Array.from(form_data)
-    .filter(([name]) => !name.startsWith(next_entry_prefix))
+    .filter(([name]) => typed_by_the_visitor(name))
     .map(([, value]) => value)
     .filter((value): value is string => typeof value === "string");
 

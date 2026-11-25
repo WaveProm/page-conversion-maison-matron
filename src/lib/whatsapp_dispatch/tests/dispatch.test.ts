@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { visit_origin_key_schema } from "@/lib/form_contract/dictionary";
 import { dispatch_to_whatsapp } from "../dispatch";
 
 const gray = "41766359652";
@@ -135,6 +136,22 @@ describe("dispatch_to_whatsapp", () => {
       },
     });
     expect(calls[0]?.url).not.toContain("SECRET-TOKEN");
+  });
+
+  it("leaves the message unchanged when the form carries the hidden inputs of the visit origin, wherever they sit", async () => {
+    const form_data = new FormData();
+    form_data.append("gclid", "TEST-CLIC-001");
+    form_data.append("given-name", "Jane");
+    form_data.append("utm_source", "google");
+    form_data.append("email", "jane.doe@example.com");
+    for (const key of visit_origin_key_schema.options) {
+      form_data.append(key, `hidden ${key}`);
+    }
+    const { calls, fetch } = posting([accepted("wamid.1")]);
+    await dispatch_to_whatsapp(form_data, "retouches", { fetch });
+    expect(parameters_of(calls[0])).toEqual(
+      text_parameters(["Jane", "jane.doe@example.com", "retouches"]),
+    );
   });
 
   it("posts to both recipients at once, before the first answers, each with its own to and the same body", async () => {

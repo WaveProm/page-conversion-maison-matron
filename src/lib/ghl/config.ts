@@ -4,8 +4,7 @@ import { module_enabled } from "./kill_switch";
 export type ghl_config = {
   api_token: string;
   location_id: string;
-  pipeline_id: string;
-  pipeline_stage_id?: string;
+  form_webhook_url: string;
   freetext_field_id?: string;
 };
 
@@ -27,8 +26,7 @@ export const parse_config = (
     config: {
       api_token: env.GHL_API_TOKEN ?? "",
       location_id: env.GHL_LOCATION_ID ?? "",
-      pipeline_id: env.GHL_PIPELINE_ID ?? "",
-      pipeline_stage_id: non_blank(env.GHL_PIPELINE_STAGE_ID),
+      form_webhook_url: env.GHL_FORM_WEBHOOK_URL ?? "",
       freetext_field_id: non_blank(env.GHL_FREETEXT_FIELD_ID),
     },
   };

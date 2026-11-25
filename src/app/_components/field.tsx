@@ -1,6 +1,7 @@
 "use client";
 
 import { use, useId } from "react";
+import type { field_key } from "@/lib/form_contract/dictionary";
 import { cn } from "@/lib/utils";
 import { LeadErrors } from "./lead_form";
 
@@ -11,17 +12,7 @@ type input_attributes = {
   autoCapitalize?: "words" | "characters" | "sentences";
 };
 
-type field_name =
-  | "given-name"
-  | "family-name"
-  | "email"
-  | "tel"
-  | "organization"
-  | "postal-code"
-  | "address-level2"
-  | "freetext";
-
-const attributes: Record<field_name, input_attributes> = {
+const attributes: Record<field_key, input_attributes> = {
   "given-name": {
     type: "text",
     autoComplete: "given-name",
@@ -53,7 +44,7 @@ const attributes: Record<field_name, input_attributes> = {
 };
 
 type field_props = {
-  name: field_name;
+  name: field_key;
   label: string;
   className?: string;
 };
@@ -61,7 +52,7 @@ type field_props = {
 export const Field = ({ name, label, className }: field_props) => {
   const id = useId();
   const error_id = `${id}-error`;
-  const errors: Partial<Record<field_name, string>> = use(LeadErrors);
+  const errors: Partial<Record<field_key, string>> = use(LeadErrors);
   const error = errors[name];
   return (
     <div className={cn("relative", className)}>

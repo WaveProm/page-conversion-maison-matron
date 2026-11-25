@@ -2,7 +2,9 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { EB_Garamond } from "next/font/google";
 import { Suspense } from "react";
+import { GoogleTag } from "@/components/google_tag";
 import { PageView } from "@/components/page_view";
+import { VisitOrigin } from "@/components/visit_origin";
 import { site_origin } from "@/lib/site_origin";
 import "./globals.css";
 
@@ -39,6 +41,8 @@ const RootLayout = ({ children }: LayoutProps<"/">) => (
       <Suspense fallback={null}>
         <PageView />
       </Suspense>
+      <VisitOrigin />
+      <GoogleTag />
       <Analytics />
     </body>
   </html>

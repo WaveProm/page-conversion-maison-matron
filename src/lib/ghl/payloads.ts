@@ -1,6 +1,13 @@
 import "server-only";
+import type { form_fields } from "@/lib/form_contract/form_fields";
 import type { ghl_config } from "./config";
-import { type contact_fields, opportunity_name_of } from "./form_table";
+import {
+  type contact_fields,
+  type custom_fields,
+  webhook_table,
+} from "./form_table";
+
+export type custom_field_item = { id: string; fieldValue: string };
 
 export type contact_payload = {
   locationId: string;
@@ -11,27 +18,44 @@ export type contact_payload = {
   companyName?: string;
   postalCode?: string;
   city?: string;
-  customFields?: Array<{ id: string; fieldValue: string }>;
+  customFields?: custom_field_item[];
 };
 
-export type opportunity_payload = {
-  pipelineId: string;
-  locationId: string;
-  name: string;
-  status: "open";
-  contactId: string;
-  pipelineStageId?: string;
-};
+export type webhook_payload = Record<string, string>;
 
-const custom_fields_of = (
+const freetext_item = (
   freetext: string | undefined,
   field_id: string | undefined,
-) =>
-  freetext && field_id ? [{ id: field_id, fieldValue: freetext }] : undefined;
+): custom_field_item[] =>
+  freetext && field_id ? [{ id: field_id, fieldValue: freetext }] : [];
+
+const keyed_items = (
+  keyed: custom_fields,
+  ids: Map<string, string>,
+): custom_field_item[] =>
+  Object.entries(keyed).flatMap(([field_key, fieldValue]) => {
+    const id = ids.get(field_key);
+    return id ? [{ id, fieldValue }] : [];
+  });
+
+const custom_field_items = (
+  fields: contact_fields,
+  config: ghl_config,
+  keyed: custom_fields,
+  ids: Map<string, string>,
+) => {
+  const items = [
+    ...freetext_item(fields.freetext, config.freetext_field_id),
+    ...keyed_items(keyed, ids),
+  ];
+  return items.length > 0 ? items : undefined;
+};
 
 export const contact_payload_of = (
   fields: contact_fields,
   config: ghl_config,
+  keyed: custom_fields = {},
+  ids: Map<string, string> = new Map(),
 ): contact_payload => ({
   locationId: config.location_id,
   firstName: fields.firstName,
@@ -41,18 +65,15 @@ export const contact_payload_of = (
   companyName: fields.companyName,
   postalCode: fields.postalCode,
   city: fields.city,
-  customFields: custom_fields_of(fields.freetext, config.freetext_field_id),
+  customFields: custom_field_items(fields, config, keyed, ids),
 });
 
-export const opportunity_payload_of = (
-  fields: contact_fields,
-  config: ghl_config,
+export const webhook_payload_of = (
+  fields: form_fields<string>,
   contact_id: string,
-): opportunity_payload => ({
-  pipelineId: config.pipeline_id,
-  locationId: config.location_id,
-  name: opportunity_name_of(fields),
-  status: "open",
-  contactId: contact_id,
-  pipelineStageId: config.pipeline_stage_id,
+): webhook_payload => ({
+  contact_id,
+  ...Object.fromEntries(
+    Object.keys(webhook_table).map((key) => [key, fields[key] ?? ""]),
+  ),
 });
