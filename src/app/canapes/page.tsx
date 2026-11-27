@@ -22,7 +22,11 @@ import { SectionSeparator } from "../_components/section_separator";
 import { ServicesSection } from "../_components/services_section";
 import { SideVisualSection } from "../_components/side_visual_section";
 import { SectionSubtitle, SectionTitle } from "../_components/typography";
-import { CurtainWrappedGifts, LouisPhilippeSofa } from "../_components/visuals";
+import {
+  CurtainWrappedGifts,
+  LionHeadSofa,
+  LouisPhilippeSofa,
+} from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
 
@@ -98,7 +102,10 @@ const SofaRestoration = () => (
         <SectionSeparator />
 
         <div id="tissu">
-          <SideVisualSection action={<Actions tone="secondary" />}>
+          <SideVisualSection
+            visual={<LionHeadSofa />}
+            action={<Actions tone="secondary" />}
+          >
             <SectionTitle>Votre canapé en tissu, habillé de neuf</SectionTitle>
             <p>
               Nos tapissiers le retapissent dans le tissu que vous choisissez

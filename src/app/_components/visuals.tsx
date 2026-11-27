@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { AutoplayVideo } from "@/components/autoplay_video";
 import five_chairs from "../../../public/visuals/5-chaises.jpg";
+import lion_head_sofa from "../../../public/visuals/canape-lions.jpg";
 import club_armchair from "../../../public/visuals/club-armchair.jpg";
 import louis_philippe_sofa from "../../../public/visuals/louis-philippe.jpg";
 import reel_poster from "../../../public/visuals/maison-matron-reel-poster.jpg";
@@ -62,6 +63,16 @@ export const LouisPhilippeSofa = () => (
       src={louis_philippe_sofa}
       alt="Canapé Louis-Philippe en bois sculpté, dossier couronné d'une palmette et accoudoirs en volute, garni d'un tissu ivoire à rayures bordeaux et petits bouquets de fleurs, sur fond blanc."
       sizes="100vw"
+    />
+  </figure>
+);
+
+export const LionHeadSofa = () => (
+  <figure>
+    <Image
+      src={lion_head_sofa}
+      alt="Canapé en bois sombre aux accoudoirs roulés terminés par des têtes de lion sculptées, garni d'un tissu orangé à fines rayures crème, sur fond blanc."
+      sizes="(min-width: 1024px) 50vw, 100vw"
     />
   </figure>
 );
