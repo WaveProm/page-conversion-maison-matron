@@ -48,7 +48,7 @@ const Actions = ({ tone }: actions_props) => (
 const CustomBlinds = () => (
   <main>
     <Hero video={<SunlightThroughBlinds />}>
-      <HeroOvertitle>Artisan tapissier et courtepointière</HeroOvertitle>
+      <HeroOvertitle>Artisan depuis 4 générations</HeroOvertitle>
       <HeroTitle>Stores sur mesure à Genève et Vaud, depuis 1921</HeroTitle>
       <HeroLead>
         Offrez-vous des stores en tissu ou en bois, sans rien poser vous-même

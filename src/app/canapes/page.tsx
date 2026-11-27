@@ -51,7 +51,7 @@ const Actions = ({ tone }: actions_props) => (
 const SofaRestoration = () => (
   <main>
     <Hero video={null}>
-      <HeroOvertitle>Artisan tapissier</HeroOvertitle>
+      <HeroOvertitle>Artisan tapissier depuis 4 générations</HeroOvertitle>
       <HeroTitle>
         Restauration et rembourrage de canapés à Genève et Vaud, depuis 1921
       </HeroTitle>
