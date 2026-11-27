@@ -97,40 +97,47 @@ const SofaRestoration = () => (
 
         <SectionSeparator />
 
-        <SideVisualSection action={<Actions tone="secondary" />}>
-          <SectionTitle>Votre canapé en tissu, habillé de neuf</SectionTitle>
-          <p>
-            Nos tapissiers le retapissent dans le tissu que vous choisissez chez
-            vous, parmi des milliers.
-          </p>
-          <p>Nous le restaurons, le réparons ou en refaisons la garniture.</p>
-        </SideVisualSection>
+        <div id="tissu">
+          <SideVisualSection action={<Actions tone="secondary" />}>
+            <SectionTitle>Votre canapé en tissu, habillé de neuf</SectionTitle>
+            <p>
+              Nos tapissiers le retapissent dans le tissu que vous choisissez
+              chez vous, parmi des milliers.
+            </p>
+            <p>Nous le restaurons, le réparons ou en refaisons la garniture.</p>
+          </SideVisualSection>
+        </div>
 
         <SectionSeparator />
 
-        <SideVisualSection action={<Actions tone="secondary" />}>
-          <SectionTitle>
-            Votre canapé en cuir, restauré plutôt que remplacé
-          </SectionTitle>
-          <p>Nous restaurons, réparons ou refaisons votre canapé en cuir.</p>
-          <p>Vous gardez le canapé que vous aimez.</p>
-        </SideVisualSection>
+        <div id="cuir">
+          <SideVisualSection action={<Actions tone="secondary" />}>
+            <SectionTitle>
+              Votre canapé en cuir, restauré plutôt que remplacé
+            </SectionTitle>
+            <p>Nous restaurons, réparons ou refaisons votre canapé en cuir.</p>
+            <p>Vous gardez le canapé que vous aimez.</p>
+          </SideVisualSection>
+        </div>
 
         <SectionSeparator />
 
-        <SideVisualSection action={<Actions tone="secondary" />}>
-          <SectionTitle>
-            Le rembourrage de votre canapé, refait sous le tissu comme sous le
-            cuir
-          </SectionTitle>
-          <p>
-            Nous refaisons le rembourrage de votre canapé, son assise comprise.
-          </p>
-          <p>
-            Puis nous le regarnissons, dans le tissu choisi avec vous ou dans
-            son cuir.
-          </p>
-        </SideVisualSection>
+        <div id="rembourrage">
+          <SideVisualSection action={<Actions tone="secondary" />}>
+            <SectionTitle>
+              Le rembourrage de votre canapé, refait sous le tissu comme sous le
+              cuir
+            </SectionTitle>
+            <p>
+              Nous refaisons le rembourrage de votre canapé, son assise
+              comprise.
+            </p>
+            <p>
+              Puis nous le regarnissons, dans le tissu choisi avec vous ou dans
+              son cuir.
+            </p>
+          </SideVisualSection>
+        </div>
 
         <SectionSeparator />
 
