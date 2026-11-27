@@ -24,7 +24,7 @@ export const OfferSection = ({
 type offer_title_props = { children: ReactNode };
 
 export const OfferTitle = ({ children }: offer_title_props) => (
-  <h2 className="font-display text-[44px] leading-[1.05] italic md:text-[64px] lg:text-[88px]">
+  <h2 className="font-sans text-[44px] leading-[1.05] font-bold md:text-[64px] lg:text-[88px]">
     {children}
   </h2>
 );
