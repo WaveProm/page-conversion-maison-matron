@@ -21,7 +21,7 @@ import { ReviewsSection } from "../_components/reviews_section";
 import { SectionSeparator } from "../_components/section_separator";
 import { ServicesSection } from "../_components/services_section";
 import { SectionSubtitle, SectionTitle } from "../_components/typography";
-import { CurtainWrappedGifts } from "../_components/visuals";
+import { CurtainWrappedGifts, LouisPhilippeSofa } from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
 
@@ -136,7 +136,10 @@ const SofaRestoration = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection action={<Actions tone="secondary" />}>
+        <WideVisualSection
+          visual={<LouisPhilippeSofa />}
+          action={<Actions tone="secondary" />}
+        >
           <SectionTitle>Le processus &amp; la restitution</SectionTitle>
           <p>
             Nos tapissiers restaurent et rembourrent votre canapé, dans le tissu
