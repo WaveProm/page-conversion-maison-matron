@@ -51,9 +51,7 @@ const Actions = ({ tone }: actions_props) => (
 const CustomCurtains = () => (
   <main>
     <Hero video={<OceanView />}>
-      <HeroOvertitle>
-        Tapissiers et courtepointières, de la visite à la pose
-      </HeroOvertitle>
+      <HeroOvertitle>Artisan tapissier et courtepointière</HeroOvertitle>
       <HeroTitle>Rideaux sur mesure à Genève et Vaud, depuis 1921</HeroTitle>
       <HeroLead>
         Vos fenêtres habillées des plus beaux tissus, sans rien poser vous-même

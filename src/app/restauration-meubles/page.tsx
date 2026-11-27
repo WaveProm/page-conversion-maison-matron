@@ -46,9 +46,7 @@ const Actions = ({ tone }: actions_props) => (
 const FurnitureRestoration = () => (
   <main>
     <Hero video={null}>
-      <HeroOvertitle>
-        Ébénistes restaurateurs, de l'expertise chez vous à la restitution
-      </HeroOvertitle>
+      <HeroOvertitle>Artisan tapissier et courtepointière</HeroOvertitle>
       <HeroTitle>
         Restauration de meubles anciens à Genève et Vaud, depuis 1921
       </HeroTitle>
