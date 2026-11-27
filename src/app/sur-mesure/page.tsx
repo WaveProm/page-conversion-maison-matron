@@ -164,7 +164,7 @@ const CustomFurniture = () => (
           video={<CurtainWrappedGifts />}
           action={<Actions tone="paper" />}
         >
-          <OfferTitle>Black Friday : 15 % sur tous les tissus</OfferTitle>
+          <OfferTitle>Black Friday : traitement des bois offert</OfferTitle>
         </OfferSection>
 
         <SectionSeparator />
