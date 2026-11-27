@@ -50,3 +50,5 @@ Edges: `ExpertiseActions` into `Hero`'s children and every `action`; visuals int
 | A video blocked by the browser | `AutoplayVideo`, unchanged | its button | `play_in_view` |
 
 ## Amendments
+- Chaque page tient un `Actions` local qui compose `ExpertiseActions` avec ses deux détails, écrits une fois par page.
+- `FabricsSection` prend `visual` en option : sans visuel, `SideVisualSection` montre son fond noir.
