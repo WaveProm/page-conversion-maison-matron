@@ -52,7 +52,7 @@ const Actions = ({ tone }: actions_props) => (
 const ArmchairsAndChairs = () => (
   <main>
     <Hero video={<MaisonMatronHero />}>
-      <HeroOvertitle>Artisan tapissier et courtepointière</HeroOvertitle>
+      <HeroOvertitle>Artisan tapissier et ébéniste</HeroOvertitle>
       <HeroTitle>
         Restauration de fauteuils et de chaises à Genève et Vaud,
         depuis&nbsp;1921

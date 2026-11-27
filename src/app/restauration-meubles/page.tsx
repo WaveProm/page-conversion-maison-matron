@@ -46,7 +46,7 @@ const Actions = ({ tone }: actions_props) => (
 const FurnitureRestoration = () => (
   <main>
     <Hero video={null}>
-      <HeroOvertitle>Artisan tapissier et courtepointière</HeroOvertitle>
+      <HeroOvertitle>Artisan ébéniste</HeroOvertitle>
       <HeroTitle>
         Restauration de meubles anciens à Genève et Vaud, depuis 1921
       </HeroTitle>
