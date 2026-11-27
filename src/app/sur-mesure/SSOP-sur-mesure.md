@@ -30,3 +30,4 @@ Edges: every shared section, unchanged, into the page.
 | The phone number shown | `ExpertiseActions`, unchanged | the page | `ExpertiseActions` |
 
 ## Amendments
+- Message 003 de Hypnos : `LouisPhilippeSofa` prend le fond noir de la section atelier, et la phrase des réalisations couvre les chaises et le canapé des photos ; le portrait de la section des tissus et la commode du processus restent des fonds noirs.
