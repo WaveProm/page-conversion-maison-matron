@@ -19,8 +19,9 @@ import { OfferSection, OfferTitle } from "../_components/offer_section";
 import { ReviewsSection } from "../_components/reviews_section";
 import { SectionSeparator } from "../_components/section_separator";
 import { ServicesSection } from "../_components/services_section";
+import { SideVisualSection } from "../_components/side_visual_section";
 import { SectionSubtitle, SectionTitle } from "../_components/typography";
-import { CurtainWrappedGifts } from "../_components/visuals";
+import { CurtainWrappedGifts, FiveChairs } from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
 
@@ -103,6 +104,21 @@ const FurnitureRestoration = () => (
             servir de nouveau.
           </p>
         </WideVisualSection>
+
+        <SectionSeparator />
+
+        <SideVisualSection
+          visual={<FiveChairs />}
+          action={<Actions tone="secondary" />}
+        >
+          <SectionTitle>
+            Profitez aussi du dernier chaisier de Suisse
+          </SectionTitle>
+          <p>Nous travaillons avec lui.</p>
+          <p>
+            Il assemble chaque chaise à l'ancienne, dans des bois de Suisse.
+          </p>
+        </SideVisualSection>
 
         <SectionSeparator />
 

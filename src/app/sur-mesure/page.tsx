@@ -4,7 +4,6 @@ import { BookingSection } from "../_components/booking_section";
 import { CallToActionDetail } from "../_components/call_to_action";
 import { CenteredSection } from "../_components/centered_section";
 import { ExpertiseActions } from "../_components/expertise_actions";
-import { FabricsSection } from "../_components/fabrics_section";
 import { Footer } from "../_components/footer";
 import { HeritageSection } from "../_components/heritage_section";
 import {
@@ -20,6 +19,7 @@ import { OfferSection, OfferTitle } from "../_components/offer_section";
 import { ReviewsSection } from "../_components/reviews_section";
 import { SectionSeparator } from "../_components/section_separator";
 import { ServicesSection } from "../_components/services_section";
+import { SideVisualSection } from "../_components/side_visual_section";
 import { SectionSubtitle, SectionTitle } from "../_components/typography";
 import {
   CurtainWrappedGifts,
@@ -85,10 +85,7 @@ const CustomFurniture = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection
-          visual={<FiveChairs />}
-          action={<Actions tone="secondary" />}
-        >
+        <WideVisualSection action={<Actions tone="secondary" />}>
           <SectionTitle>
             Transformez votre intérieur avec un meuble à votre image.
           </SectionTitle>
@@ -96,20 +93,24 @@ const CustomFurniture = () => (
             Nous le fabriquons à vos mesures, dans les bois et les tissus que
             vous choisissez.
           </p>
-          <SectionSubtitle>Des chaises assemblées à l'ancienne</SectionSubtitle>
-          <p>
-            Le dernier chaisier de Suisse, avec qui nous travaillons, les
-            assemble dans des bois locaux.
-          </p>
-          <p>
-            Les chaises et le canapé de nos photos, nous les avons tapissés :
-            nous fabriquons les mêmes sur mesure.
-          </p>
         </WideVisualSection>
 
         <SectionSeparator />
 
-        <FabricsSection action={<Actions tone="secondary" />} />
+        <SideVisualSection
+          visual={<FiveChairs />}
+          action={<Actions tone="secondary" />}
+        >
+          <SectionTitle>
+            Vos chaises assemblées par le dernier chaisier de Suisse
+          </SectionTitle>
+          <p>Nous travaillons avec lui pour chacune de vos chaises.</p>
+          <p>Il les assemble à l'ancienne, dans des bois de Suisse.</p>
+          <p>
+            Les chaises et le canapé de nos photos, nous les avons tapissés :
+            nous fabriquons les mêmes sur mesure.
+          </p>
+        </SideVisualSection>
 
         <SectionSeparator />
 
