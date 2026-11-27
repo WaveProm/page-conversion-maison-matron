@@ -67,6 +67,30 @@ export const GenoaVelvet = () => (
   </figure>
 );
 
+export const TeakSideboard = () => (
+  <figure>
+    <Image
+      src="/visuals/buffet.jpg"
+      width={3000}
+      height={2000}
+      alt="Enfilade en teck, trois tiroirs à gauche et deux portes à droite aux poignées taillées dans le bois, sur quatre pieds fuselés, sur fond blanc."
+      sizes="100vw"
+    />
+  </figure>
+);
+
+export const WalnutSecretary = () => (
+  <figure>
+    <Image
+      src="/visuals/armoire.jpg"
+      width={2160}
+      height={2700}
+      alt="Secrétaire ancien en noyer aux veines flammées, un tiroir au-dessus de l'abattant et trois en dessous, boutons de laiton et pieds boule, sur fond blanc."
+      sizes="(min-width: 1024px) 50vw, 100vw"
+    />
+  </figure>
+);
+
 export const LouisPhilippeSofa = () => (
   <figure>
     <Image
