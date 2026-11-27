@@ -1,14 +1,6 @@
 import type { ReactNode } from "react";
+import type { service_path } from "@/lib/service_path";
 import { SectionTitle } from "./typography";
-
-type service_path =
-  | "/"
-  | "/fauteuils"
-  | "/canapes"
-  | "/restauration-meubles"
-  | "/sur-mesure"
-  | "/stores-sur-mesure"
-  | "/rideaux-sur-mesure";
 
 type service_props = {
   href: service_path;

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { service_path } from "@/lib/service_path";
 
 export const opengraph_image_path = "/opengraph-velours-gene.jpg";
 
@@ -11,7 +12,7 @@ const opengraph_image = {
 };
 
 type landing_page = {
-  pathname: "/" | "/rideaux-sur-mesure";
+  pathname: service_path;
   title: string;
   description: string;
 };
