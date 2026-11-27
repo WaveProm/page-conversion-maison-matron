@@ -8,7 +8,10 @@ type framing =
   | { cover: true; poster: `/video/${string}` }
   | { cover?: false; poster: StaticImageData; label: string };
 
-type autoplay_video_props = play_in_view_settings & { src: string } & framing;
+type autoplay_video_props = play_in_view_settings & {
+  src: string;
+  eager?: boolean;
+} & framing;
 
 export const AutoplayVideo = (props: autoplay_video_props) => {
   const { src, start_margin, pause_off_screen } = props;
@@ -33,7 +36,8 @@ export const AutoplayVideo = (props: autoplay_video_props) => {
         poster={props.cover ? props.poster : props.poster.src}
         width={props.cover ? undefined : props.poster.width}
         height={props.cover ? undefined : props.poster.height}
-        preload="none"
+        autoPlay={props.eager}
+        preload={props.eager ? undefined : "none"}
         muted
         loop
         playsInline

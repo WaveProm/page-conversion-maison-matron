@@ -13,6 +13,7 @@ export const MaisonMatronHero = () => (
     src="/video/maison-matron-hero.mp4"
     poster="/video/maison-matron-hero-poster.avif"
     cover
+    eager
   />
 );
 
@@ -21,6 +22,7 @@ export const OceanView = () => (
     src="/video/rideaux-sur-mesure-hero.mp4"
     poster="/video/rideaux-sur-mesure-hero-poster.avif"
     cover
+    eager
   />
 );
 

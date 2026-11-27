@@ -57,3 +57,4 @@ Edges: `ExpertiseActions` into `Hero`'s children and every `action`; visuals int
 - Patch 003 : `ServicesSection`, les pages de service écrites une fois, la page courante exclue par `current`.
 - Patch 003 : `AutoplayVideo` est le seul module vidéo ; `framing` sépare la vidéo de fond, `cover` et décorative, son poster un chemin de `public/video/`, de la vidéo de section, son label et son poster importé qui la dimensionne ; Turbopack n'importe pas l'AVIF.
 - Patch 003 : `Hero` prend sa vidéo en slot, donnée par `visuals.tsx`.
+- Patch 006 : `AutoplayVideo` prend `eager` : la vidéo à l'écran dès l'arrivée, le hero, démarre nativement au chargement par `autoPlay`, sans `preload`, et garde `play_in_view` pour le refus, le geste et la reprise.
