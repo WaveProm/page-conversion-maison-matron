@@ -16,20 +16,16 @@ import {
   HeroQuote,
   HeroTitle,
 } from "../_components/hero";
+import { OfferSection, OfferTitle } from "../_components/offer_section";
 import { ReviewsSection } from "../_components/reviews_section";
 import { SectionSeparator } from "../_components/section_separator";
-import { SideVisualSection } from "../_components/side_visual_section";
-import {
-  Initials,
-  Quote,
-  Reviewer,
-  SectionSubtitle,
-  SectionTitle,
-} from "../_components/typography";
+import { ServicesSection } from "../_components/services_section";
+import { SectionSubtitle, SectionTitle } from "../_components/typography";
 import {
   CopperCurtains,
   CurtainWrappedGifts,
   GenoaVelvet,
+  OceanView,
 } from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
@@ -41,8 +37,10 @@ export const metadata = landing_metadata({
     "Vos rideaux sur mesure dans les plus beaux tissus, cousus par nos courtepointières et posés chez vous. L'atelier vient à vous, c'est offert. Visite chez vous ❊ Conseil sur vos tissus",
 });
 
-const Actions = () => (
-  <ExpertiseActions tone="secondary">
+type actions_props = { tone: "paper" | "secondary" };
+
+const Actions = ({ tone }: actions_props) => (
+  <ExpertiseActions tone={tone}>
     <CallToActionDetail>Visite chez vous</CallToActionDetail>
     <CallToActionDetail>Conseil sur vos tissus</CallToActionDetail>
   </ExpertiseActions>
@@ -50,10 +48,7 @@ const Actions = () => (
 
 const CustomCurtains = () => (
   <main>
-    <Hero
-      video="/video/rideaux-sur-mesure-hero.mp4"
-      poster="/video/rideaux-sur-mesure-hero-poster.avif"
-    >
+    <Hero video={<OceanView />}>
       <HeroOvertitle>
         Tapissiers et courtepointières, de la visite à la pose
       </HeroOvertitle>
@@ -67,10 +62,7 @@ const CustomCurtains = () => (
           « Des conseils avisés, une superbe sélection de tissus et un
           savoir-faire minutieux. » - Anne-Claude
         </HeroQuote>
-        <ExpertiseActions tone="paper">
-          <CallToActionDetail>Visite chez vous</CallToActionDetail>
-          <CallToActionDetail>Conseil sur vos tissus</CallToActionDetail>
-        </ExpertiseActions>
+        <Actions tone="paper" />
       </HeroClose>
     </Hero>
 
@@ -87,18 +79,17 @@ const CustomCurtains = () => (
 
         <SectionSeparator />
 
-        <HeritageSection action={<Actions />} />
+        <HeritageSection action={<Actions tone="secondary" />} />
 
         <SectionSeparator />
 
-        <WideVisualSection action={<Actions />}>
+        <WideVisualSection action={<Actions tone="secondary" />}>
           <SectionTitle>
-            Transformez votre salon avec des rideaux en tissu Pierre Frey, à vos
-            mesures.
+            Transformez vos pièces avec des rideaux à votre image.
           </SectionTitle>
           <p>
-            Nos tissus d'éditeur et le travail de nos courtepointières
-            transforment vos fenêtres.
+            Nous nous occupons de tout, de la confection à la pose, même les
+            rails ou les tringles.
           </p>
           <SectionSubtitle>
             Des rideaux qui tombent juste, dans un vrai tissu
@@ -115,11 +106,17 @@ const CustomCurtains = () => (
 
         <SectionSeparator />
 
-        <FabricsSection visual={<CopperCurtains />} action={<Actions />} />
+        <FabricsSection
+          visual={<CopperCurtains />}
+          action={<Actions tone="secondary" />}
+        />
 
         <SectionSeparator />
 
-        <WideVisualSection visual={<GenoaVelvet />} action={<Actions />}>
+        <WideVisualSection
+          visual={<GenoaVelvet />}
+          action={<Actions tone="secondary" />}
+        >
           <SectionTitle>L'atelier vient à vous, et c'est offert</SectionTitle>
           <p>
             Quel que soit votre projet de rideaux, nous venons d'abord en
@@ -145,7 +142,7 @@ const CustomCurtains = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection action={<Actions />}>
+        <WideVisualSection action={<Actions tone="secondary" />}>
           <SectionTitle>Le processus &amp; la restitution</SectionTitle>
           <p>Nos courtepointières confectionnent vos rideaux à vos mesures.</p>
           <p>Nous vous tenons informé durant toute la confection.</p>
@@ -161,151 +158,30 @@ const CustomCurtains = () => (
 
         <SectionSeparator />
 
-        <SideVisualSection
-          visual={<CurtainWrappedGifts />}
-          action={<Actions />}
+        <OfferSection
+          video={<CurtainWrappedGifts />}
+          action={<Actions tone="paper" />}
         >
-          <SectionTitle>Black Friday : 15 % sur tous les tissus</SectionTitle>
-          <SectionSubtitle>
-            Choisissez le tissu de vos rideaux parmi des milliers : il vous
-            coûte 15 % de moins.
-          </SectionSubtitle>
-        </SideVisualSection>
+          <OfferTitle>Black Friday : 15 % sur tous les tissus</OfferTitle>
+        </OfferSection>
 
         <SectionSeparator />
 
-        <ReviewsSection
-          title={
-            <SectionTitle>Ils nous ont confié leur intérieur</SectionTitle>
-          }
-        >
-          <figure>
-            <blockquote>
-              <Quote>
-                « Des conseils avisés, une superbe sélection de tissus et un
-                savoir-faire minutieux. Nous sommes ravis de nos nouvelles
-                chaises et nous ferons sans aucun doute à nouveau appel à M.
-                Matron. »
-              </Quote>
-            </blockquote>
-            <Reviewer>
-              <Initials>AG</Initials>Anne-Claude Gavin
-            </Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « Nous avons remis 6 chaises de salon pour mettre une nouvelle
-                tapisserie et sommes très satisfaits du résultat. Prix
-                raisonnable, tissu de qualité, finitions impeccables, livraison
-                dans les (courts) délais et un contact très agréable et
-                professionnel. Nous pouvons recommander Tapissier Matron. »
-              </Quote>
-            </blockquote>
-            <Reviewer>
-              <Initials>SS</Initials>stephan suter
-            </Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « Grand professionnalisme sans oublier une bienveillance et
-                sympathie exceptionnelles. »
-              </Quote>
-            </blockquote>
-            <Reviewer>
-              <Initials>M</Initials>MP
-            </Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « Je recommande Monsieur Matron qui a effectué une très jolie
-                restauration sur mon fauteuil. Travail au top »
-              </Quote>
-            </blockquote>
-            <Reviewer>
-              <Initials>TM</Initials>Tony Mellard
-            </Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « Je recommande M. Matron, il a restauré mon fauteuil, le
-                travail est parfait. »
-              </Quote>
-            </blockquote>
-            <Reviewer>
-              <Initials>TB</Initials>Trévis Bontemps
-            </Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « Très bon service, bonne écoute du client, patience le temps
-                que le choix soit établi, livraison conforme aux attentes et
-                travail très propre. »
-              </Quote>
-            </blockquote>
-            <Reviewer>
-              <Initials>SG</Initials>Santiago Girardbille
-            </Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « Je ne puis que recommander la Maison Matron qui est une belle
-                entreprise familiale. De bon conseil avec un travail soigné et
-                de qualité. Absolument ravie du rendu concernant un vieux
-                fauteuil de famille alors n'hésitez pas et prenez rapidement
-                contact avec eux. Avec mes bonnes salutations. A. Berniguet »
-              </Quote>
-            </blockquote>
-            <Reviewer>
-              <Initials>AB</Initials>Annick Berniguet
-            </Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « De sincères remerciements à la famille Matron pour leur
-                intervention. Ils ont littéralement sauvé notre enfilade en teck
-                qui avait subi des dommages liées à une infiltration. »
-              </Quote>
-            </blockquote>
-            <Reviewer>
-              <Initials>SC</Initials>Sebastien Coussieu
-            </Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « Bon contact et bonne expertise. Mon fauteuil a maintenant un
-                tissu magnifique ! Il commence sa seconde vie !! Merci. Je
-                recommande cet artisan. »
-              </Quote>
-            </blockquote>
-            <Reviewer>
-              <Initials>AL</Initials>aline loiseau
-            </Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>« Superbe travail !!! Merci »</Quote>
-            </blockquote>
-            <Reviewer>
-              <Initials>GA</Initials>Ginguene Anne
-            </Reviewer>
-          </figure>
+        <ReviewsSection>
+          <SectionTitle>Ils nous ont confié leur intérieur</SectionTitle>
         </ReviewsSection>
 
         <SectionSeparator />
 
         <BookingSection form_id="rideaux-sur-mesure">
           <SectionTitle>
-            Recevez nos tissus chez vous, la visite est offerte.
+            Faites-vous plaisir, c'est sans engagement
           </SectionTitle>
         </BookingSection>
+
+        <SectionSeparator />
+
+        <ServicesSection current="/rideaux-sur-mesure" />
       </div>
       <Footer />
     </Watermarked>

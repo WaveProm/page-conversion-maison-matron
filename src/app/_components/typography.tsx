@@ -24,15 +24,6 @@ export const Quote = ({ children }: typography_props) => (
   <p className="text-[17px] leading-[1.45]">{children}</p>
 );
 
-export const Initials = ({ children }: typography_props) => (
-  <span
-    aria-hidden
-    className="mr-2 inline-grid size-8 place-items-center rounded-full border border-current align-middle font-sans text-[12px] leading-none not-italic"
-  >
-    {children}
-  </span>
-);
-
 export const Reviewer = ({ children }: typography_props) => (
   <figcaption className="mt-4 font-display text-[17px] leading-[1.45] italic">
     {children}

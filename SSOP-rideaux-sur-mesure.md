@@ -52,3 +52,8 @@ Edges: `ExpertiseActions` into `Hero`'s children and every `action`; visuals int
 ## Amendments
 - Chaque page tient un `Actions` local qui compose `ExpertiseActions` avec ses deux détails, écrits une fois par page.
 - `FabricsSection` prend `visual` en option : sans visuel, `SideVisualSection` montre son fond noir.
+- Patch 003 : `ReviewsSection` tient les dix avis de / et reçoit son titre en children ; `Initials` sort.
+- Patch 003 : `OfferSection` et `OfferTitle`, l'offre spéciale en plein écran, la vidéo en fond, le titre et l'action en overlay.
+- Patch 003 : `ServicesSection`, les pages de service écrites une fois, la page courante exclue par `current`.
+- Patch 003 : `AutoplayVideo` est le seul module vidéo ; `framing` sépare la vidéo de fond, `cover` et décorative, son poster un chemin de `public/video/`, de la vidéo de section, son label et son poster importé qui la dimensionne ; Turbopack n'importe pas l'AVIF.
+- Patch 003 : `Hero` prend sa vidéo en slot, donnée par `visuals.tsx`.

@@ -2,12 +2,27 @@ import Image from "next/image";
 import { AutoplayVideo } from "@/components/autoplay_video";
 import five_chairs from "../../../public/visuals/5-chaises.jpg";
 import club_armchair from "../../../public/visuals/club-armchair.jpg";
-import curtain_wrapped_gifts_poster from "../../../public/visuals/curtain-wrapped-gifts-poster.jpg";
 import louis_philippe_sofa from "../../../public/visuals/louis-philippe.jpg";
 import reel_poster from "../../../public/visuals/maison-matron-reel-poster.jpg";
 import copper_curtains from "../../../public/visuals/rideaux-cuivres-salon.jpg";
 import genoa_velvet from "../../../public/visuals/velours-gene.jpg";
 import voltaire_poster from "../../../public/visuals/voltaire-orbital-macro-poster.jpg";
+
+export const MaisonMatronHero = () => (
+  <AutoplayVideo
+    src="/video/maison-matron-hero.mp4"
+    poster="/video/maison-matron-hero-poster.avif"
+    cover
+  />
+);
+
+export const OceanView = () => (
+  <AutoplayVideo
+    src="/video/rideaux-sur-mesure-hero.mp4"
+    poster="/video/rideaux-sur-mesure-hero-poster.avif"
+    cover
+  />
+);
 
 export const FiveChairs = () => (
   <figure>
@@ -80,11 +95,9 @@ export const CopperCurtains = () => (
 );
 
 export const CurtainWrappedGifts = () => (
-  <figure>
-    <AutoplayVideo
-      src="/visuals/curtain-wrapped-gifts.mp4"
-      poster={curtain_wrapped_gifts_poster}
-      label="Une femme pousse un diable chargé de cadeaux emballés de rose devant un grand rideau rose plissé, sous une arche blanche."
-    />
-  </figure>
+  <AutoplayVideo
+    src="/video/curtain-wrapped-gifts.mp4"
+    poster="/video/curtain-wrapped-gifts-poster.jpg"
+    cover
+  />
 );

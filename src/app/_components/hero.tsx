@@ -6,24 +6,11 @@ import { Frame } from "./frame";
 import styles from "./hero.module.css";
 import { Quote, SectionSubtitle } from "./typography";
 
-type hero_props = {
-  video: `/video/${string}`;
-  poster: `/video/${string}`;
-  children: ReactNode;
-};
+type hero_props = { video: ReactNode; children: ReactNode };
 
-export const Hero = ({ video, poster, children }: hero_props) => (
+export const Hero = ({ video, children }: hero_props) => (
   <section className="relative overflow-hidden bg-ink text-paper">
-    <video
-      src={video}
-      poster={poster}
-      autoPlay
-      muted
-      loop
-      playsInline
-      aria-hidden
-      className="absolute inset-0 size-full object-cover"
-    />
+    {video}
     <div aria-hidden className="absolute inset-0 bg-ink/50" />
     <div
       aria-hidden
@@ -83,8 +70,8 @@ export const HeroLead = ({ children }: hero_copy_props) => (
 
 export const HeroFigures = () => (
   <div className="mb-4">
-    <SectionSubtitle>+20'000 pièces</SectionSubtitle>
-    <SectionSubtitle>+5'000 clients</SectionSubtitle>
+    <SectionSubtitle>+20'000 pièces créées</SectionSubtitle>
+    <SectionSubtitle>+5'000 clients satisfaits</SectionSubtitle>
   </div>
 );
 

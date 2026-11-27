@@ -4,19 +4,14 @@ import type { StaticImageData } from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { play_in_view, type play_in_view_settings } from "@/lib/play_in_view";
 
-type autoplay_video_props = play_in_view_settings & {
-  src: string;
-  poster: StaticImageData;
-  label: string;
-};
+type framing =
+  | { cover: true; poster: `/video/${string}` }
+  | { cover?: false; poster: StaticImageData; label: string };
 
-export const AutoplayVideo = ({
-  src,
-  poster,
-  label,
-  start_margin,
-  pause_off_screen,
-}: autoplay_video_props) => {
+type autoplay_video_props = play_in_view_settings & { src: string } & framing;
+
+export const AutoplayVideo = (props: autoplay_video_props) => {
+  const { src, start_margin, pause_off_screen } = props;
   const video = useRef<HTMLVideoElement>(null);
   const [blocked, set_blocked] = useState(false);
 
@@ -31,19 +26,22 @@ export const AutoplayVideo = ({
   }, [start_margin, pause_off_screen]);
 
   return (
-    <div className="relative">
+    <div className={props.cover ? "absolute inset-0" : "relative"}>
       <video
         ref={video}
         src={src}
-        poster={poster.src}
-        width={poster.width}
-        height={poster.height}
+        poster={props.cover ? props.poster : props.poster.src}
+        width={props.cover ? undefined : props.poster.width}
+        height={props.cover ? undefined : props.poster.height}
         preload="none"
         muted
         loop
         playsInline
-        aria-label={label}
-        className="block h-auto w-full"
+        aria-label={props.cover ? undefined : props.label}
+        aria-hidden={props.cover ? true : undefined}
+        className={
+          props.cover ? "size-full object-cover" : "block h-auto w-full"
+        }
       />
       {blocked && (
         <button
