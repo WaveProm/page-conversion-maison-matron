@@ -1,6 +1,7 @@
 import { landing_metadata } from "@/lib/landing_metadata";
 import { structured_data_json } from "@/lib/structured_data";
 import { BookingSection } from "../_components/booking_section";
+import { BulletList } from "../_components/bullet_list";
 import { CallToActionDetail } from "../_components/call_to_action";
 import { CenteredSection } from "../_components/centered_section";
 import { ExpertiseActions } from "../_components/expertise_actions";
@@ -71,12 +72,17 @@ const CustomFurniture = () => (
     <Watermarked>
       <div className="page-width flex flex-col gap-24 py-12 lg:gap-32 lg:py-16 [&_:is(p,li):not(.font-display)]:text-gray-600">
         <CenteredSection>
-          <SectionTitle>
-            Vous cherchez le meuble à votre image, or…
-          </SectionTitle>
-          <p>L'enseigne décide jusqu'où va votre « sur-mesure ».</p>
-          <p>Le modèle qui vous plaît se retrouve déjà chez d'autres.</p>
-          <p>Personne ne vous dit d'où vient le bois, ni qui l'a travaillé.</p>
+          <SectionTitle>Vous cherchez le meuble de vos rêves ?</SectionTitle>
+          <BulletList>
+            <li>
+              L'avoir à vos mesures, dans le bois et le tissu de votre choix ?
+            </li>
+            <li>
+              Qu'on s'occupe de tout pour vous, de la visite chez vous à la
+              fabrication ?
+            </li>
+          </BulletList>
+          <SectionSubtitle>Vous êtes au bon endroit.</SectionSubtitle>
         </CenteredSection>
 
         <SectionSeparator />

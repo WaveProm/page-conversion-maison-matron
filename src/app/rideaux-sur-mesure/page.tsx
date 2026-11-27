@@ -1,6 +1,7 @@
 import { landing_metadata } from "@/lib/landing_metadata";
 import { structured_data_json } from "@/lib/structured_data";
 import { BookingSection } from "../_components/booking_section";
+import { BulletList } from "../_components/bullet_list";
 import { CallToActionDetail } from "../_components/call_to_action";
 import { CenteredSection } from "../_components/centered_section";
 import { ExpertiseActions } from "../_components/expertise_actions";
@@ -70,12 +71,16 @@ const CustomCurtains = () => (
     <Watermarked>
       <div className="page-width flex flex-col gap-24 py-12 lg:gap-32 lg:py-16 [&_:is(p,li):not(.font-display)]:text-gray-600">
         <CenteredSection>
-          <SectionTitle>
-            Vous cherchez les rideaux à votre image, or…
-          </SectionTitle>
-          <p>L'enseigne décide jusqu'où va votre « sur-mesure ».</p>
-          <p>Le tissu se choisit sur un échantillon, loin de vos fenêtres.</p>
-          <p>La pose des rails et des tringles vous reste sur les bras.</p>
+          <SectionTitle>Vous cherchez les rideaux de vos rêves ?</SectionTitle>
+          <BulletList>
+            <li>
+              Sélectionner le tissu parfait parmi nos vastes collections ?
+            </li>
+            <li>
+              Qu'on s'occupe de tout pour vous, de la confection à la pose ?
+            </li>
+          </BulletList>
+          <SectionSubtitle>Vous êtes au bon endroit.</SectionSubtitle>
         </CenteredSection>
 
         <SectionSeparator />
