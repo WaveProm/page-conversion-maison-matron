@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-
-const title = "Maison Matron | La Haute Couture, pour vos meubles";
-const description =
-  "Nous transformons vos meubles en pièces uniques au monde. L'atelier vient à vous, c'est offert. Visite chez vous ❊ Évaluation de votre mobilier";
+import type { service_path } from "@/lib/service_path";
 
 export const opengraph_image_path = "/opengraph-velours-gene.jpg";
 
@@ -14,7 +11,17 @@ const opengraph_image = {
   alt: "Gros plan d'un velours de Gênes à motif floral : roses et boutons rose corail, feuillage vert sombre en relief, sur fond blanc.",
 };
 
-export const landing_metadata = (pathname: "/"): Metadata => ({
+type landing_page = {
+  pathname: service_path;
+  title: string;
+  description: string;
+};
+
+export const landing_metadata = ({
+  pathname,
+  title,
+  description,
+}: landing_page): Metadata => ({
   title: { absolute: title },
   description,
   applicationName: "Maison Matron",

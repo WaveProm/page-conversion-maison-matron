@@ -11,6 +11,13 @@ const sitemap = (): MetadataRoute.Sitemap => [
     images: [at_origin(opengraph_image_path)],
   },
   {
+    url: at_origin("/rideaux-sur-mesure"),
+    lastModified: new Date("2026-11-27"),
+    changeFrequency: "monthly",
+    priority: 0.9,
+    images: [at_origin(opengraph_image_path)],
+  },
+  {
     url: at_origin("/llms.txt"),
     lastModified: new Date("2026-10-01"),
     changeFrequency: "monthly",

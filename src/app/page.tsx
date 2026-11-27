@@ -1,63 +1,70 @@
-import Image from "next/image";
-import { AutoplayVideo } from "@/components/autoplay_video";
 import { landing_metadata } from "@/lib/landing_metadata";
 import { structured_data_json } from "@/lib/structured_data";
-import casal_logo from "../../public/fabric-logos/casal.svg";
-import christian_lacroix_logo from "../../public/fabric-logos/christian-lacroix.png";
-import dedar_logo from "../../public/fabric-logos/dedar.svg";
-import edmond_petit_logo from "../../public/fabric-logos/edmond-petit.png";
-import hermes_logo from "../../public/fabric-logos/hermes.svg";
-import lelievre_logo from "../../public/fabric-logos/lelievre-paris.svg";
-import nobilis_logo from "../../public/fabric-logos/nobilis.svg";
-import pierre_frey_logo from "../../public/fabric-logos/pierre-frey.svg";
-import ralph_lauren_logo from "../../public/fabric-logos/ralph-lauren.svg";
-import five_chairs from "../../public/visuals/5-chaises.jpg";
-import archival_photo from "../../public/visuals/archival-photo-man-leading-horse.jpg";
-import club_armchair from "../../public/visuals/club-armchair.jpg";
-import louis_philippe_sofa from "../../public/visuals/louis-philippe.jpg";
-import reel_poster from "../../public/visuals/maison-matron-reel-poster.jpg";
-import genoa_velvet from "../../public/visuals/velours-gene.jpg";
-import voltaire_poster from "../../public/visuals/voltaire-orbital-macro-poster.jpg";
-import {
-  CallToAction,
-  CallToActionDetail,
-  CallToActionDetails,
-  CallToActions,
-} from "./_components/call_to_action";
+import { BookingSection } from "./_components/booking_section";
+import { CallToActionDetail } from "./_components/call_to_action";
 import { CenteredSection } from "./_components/centered_section";
-import { Field } from "./_components/field";
+import { ExpertiseActions } from "./_components/expertise_actions";
+import { FabricsSection } from "./_components/fabrics_section";
 import { Footer } from "./_components/footer";
-import { Hero } from "./_components/hero";
-import { LeadSheet } from "./_components/lead_sheet";
-import { LogoGrid } from "./_components/logo_grid";
+import { HeritageSection } from "./_components/heritage_section";
+import {
+  Hero,
+  HeroClose,
+  HeroFigures,
+  HeroLead,
+  HeroOvertitle,
+  HeroQuote,
+  HeroTitle,
+} from "./_components/hero";
 import { ReviewsSection } from "./_components/reviews_section";
 import { SectionSeparator } from "./_components/section_separator";
 import { SideVisualSection } from "./_components/side_visual_section";
+import { SectionSubtitle, SectionTitle } from "./_components/typography";
 import {
-  Caption,
-  Quote,
-  Reviewer,
-  SectionSubtitle,
-  SectionTitle,
-} from "./_components/typography";
+  ClubArmchair,
+  FiveChairs,
+  GenoaVelvet,
+  LouisPhilippeSofa,
+  MaisonMatronHero,
+  MaisonMatronReel,
+  VoltaireOrbitalMacro,
+} from "./_components/visuals";
 import { Watermarked } from "./_components/watermarked";
 import { WideVisualSection } from "./_components/wide_visual_section";
 
-export const metadata = landing_metadata("/");
+export const metadata = landing_metadata({
+  pathname: "/",
+  title: "Maison Matron | La Haute Couture, pour vos meubles",
+  description:
+    "Nous transformons vos meubles en pièces uniques au monde. L'atelier vient à vous, c'est offert. Visite chez vous ❊ Évaluation de votre mobilier",
+});
+
+const Actions = () => (
+  <ExpertiseActions tone="secondary">
+    <CallToActionDetail>Visite chez vous</CallToActionDetail>
+    <CallToActionDetail>Évaluation de votre mobilier</CallToActionDetail>
+  </ExpertiseActions>
+);
 
 const Home = () => (
   <main>
-    <Hero>
-      <CallToActions>
-        <CallToAction href="#booking">Votre expertise offerte</CallToAction>
-        <CallToAction href="tel:+41215394675" tone="paper">
-          +41 21 539 46 75
-        </CallToAction>
-      </CallToActions>
-      <CallToActionDetails tone="paper">
-        <CallToActionDetail>Visite chez vous</CallToActionDetail>
-        <CallToActionDetail>Évaluation de votre mobilier</CallToActionDetail>
-      </CallToActionDetails>
+    <Hero video={<MaisonMatronHero />}>
+      <HeroOvertitle>
+        Artisan tapissier et ébéniste depuis 4 générations
+      </HeroOvertitle>
+      <HeroTitle>Transformez vos meubles en pièce unique</HeroTitle>
+      <HeroLead>Profitez d'une collection de tissus d'exception</HeroLead>
+      <HeroFigures />
+      <HeroClose>
+        <HeroQuote>
+          « Des conseils avisés, une superbe sélection de tissus et un
+          savoir-faire minutieux. » - Anne-Claude
+        </HeroQuote>
+        <ExpertiseActions tone="paper">
+          <CallToActionDetail>Visite chez vous</CallToActionDetail>
+          <CallToActionDetail>Évaluation de votre mobilier</CallToActionDetail>
+        </ExpertiseActions>
+      </HeroClose>
     </Hero>
 
     <Watermarked>
@@ -71,84 +78,11 @@ const Home = () => (
 
         <SectionSeparator />
 
-        <SideVisualSection
-          visual={
-            <figure>
-              <Image
-                src={archival_photo}
-                alt="Photographie d'archive en noir et blanc : un homme en gilet et chemise aux manches retroussées tient un cheval par la longe, devant une bâtisse."
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                preload
-              />
-              <Caption>Photo d'archive</Caption>
-            </figure>
-          }
-          action={
-            <>
-              <CallToActions>
-                <CallToAction href="#booking">
-                  Votre expertise offerte
-                </CallToAction>
-                <CallToAction href="tel:+41215394675" tone="secondary">
-                  +41 21 539 46 75
-                </CallToAction>
-              </CallToActions>
-              <CallToActionDetails>
-                <CallToActionDetail>Visite chez vous</CallToActionDetail>
-                <CallToActionDetail>
-                  Évaluation de votre mobilier
-                </CallToActionDetail>
-              </CallToActionDetails>
-            </>
-          }
-        >
-          <SectionTitle>
-            Maison Matron, artisan depuis 4 générations
-          </SectionTitle>
-          <p>
-            Depuis plus d'un siècle, notre savoir-faire façonne des objets,
-            travaillés à la main et habillés des plus beaux tissus.
-          </p>
-          <p>
-            Nos tapissiers, ébénistes et courtepointières sont unis par une
-            unique valeur :
-          </p>
-          <SectionSubtitle>
-            Ennoblir chaque pièce qui nous est confiée.
-          </SectionSubtitle>
-        </SideVisualSection>
+        <HeritageSection action={<Actions />} />
 
         <SectionSeparator />
 
-        <WideVisualSection
-          visual={
-            <figure>
-              <Image
-                src={five_chairs}
-                alt="Une petite chaise laquée blanc au dossier enroulé et quatre chaises traîneau en bois, garnies d'un même tissu bleu à motif de cercles, sur fond blanc."
-                sizes="100vw"
-              />
-            </figure>
-          }
-          action={
-            <>
-              <CallToActions>
-                <CallToAction href="#booking">
-                  Votre expertise offerte
-                </CallToAction>
-                <CallToAction href="tel:+41215394675" tone="secondary">
-                  +41 21 539 46 75
-                </CallToAction>
-              </CallToActions>
-              <CallToActionDetails>
-                <CallToActionDetail>Visite chez vous</CallToActionDetail>
-                <CallToActionDetail>
-                  Évaluation de votre mobilier
-                </CallToActionDetail>
-              </CallToActionDetails>
-            </>
-          }
-        >
+        <WideVisualSection visual={<FiveChairs />} action={<Actions />}>
           <SectionTitle>De meuble à pièce de collection</SectionTitle>
           <p>
             Nos vastes collections de tissus et notre savoir-faire d'ébéniste
@@ -163,119 +97,11 @@ const Home = () => (
 
         <SectionSeparator />
 
-        <SideVisualSection
-          visual={
-            <figure>
-              <AutoplayVideo
-                src="/visuals/maison-matron-reel.mp4"
-                poster={reel_poster}
-                label="Des chaises en bois garnies d'un tissu bleu, puis un velours rouge à motifs floraux, sous le logo Maison Matron 1921 ; une femme en tailleur blanc assise dans un fauteuil club, avec la phrase « La Haute Couture, pour vos meubles. » ; le logo Maison Matron sur fond noir."
-              />
-            </figure>
-          }
-          action={
-            <>
-              <CallToActions>
-                <CallToAction href="#booking">
-                  Votre expertise offerte
-                </CallToAction>
-                <CallToAction href="tel:+41215394675" tone="secondary">
-                  +41 21 539 46 75
-                </CallToAction>
-              </CallToActions>
-              <CallToActionDetails>
-                <CallToActionDetail>Visite chez vous</CallToActionDetail>
-                <CallToActionDetail>
-                  Évaluation de votre mobilier
-                </CallToActionDetail>
-              </CallToActionDetails>
-            </>
-          }
-        >
-          <SectionTitle>Profitez de milliers de tissus</SectionTitle>
-          <p>Nos collections voyagent avec nous jusqu'à chez vous.</p>
-          <p>Ce que vous voulez, nous l'avons.</p>
-          <LogoGrid>
-            <Image
-              src={hermes_logo}
-              alt="Hermès"
-              className="w-[54%] brightness-0 invert-[10.6%]"
-            />
-            <Image
-              src={christian_lacroix_logo}
-              alt="Christian Lacroix"
-              className="w-[69%] brightness-0 invert-[10.6%]"
-            />
-            <Image
-              src={ralph_lauren_logo}
-              alt="Ralph Lauren"
-              className="w-[85%] brightness-0 invert-[10.6%]"
-            />
-            <Image
-              src={dedar_logo}
-              alt="Dedar"
-              className="w-[38%] brightness-0 invert-[10.6%]"
-            />
-            <Image
-              src={lelievre_logo}
-              alt="Lelièvre"
-              className="w-[41%] brightness-0 invert-[10.6%]"
-            />
-            <Image
-              src={nobilis_logo}
-              alt="Nobilis"
-              className="w-[47%] brightness-0 invert-[10.6%]"
-            />
-            <Image
-              src={edmond_petit_logo}
-              alt="Edmond Petit"
-              className="w-[68%] brightness-0 invert-[10.6%]"
-            />
-            <Image
-              src={pierre_frey_logo}
-              alt="Pierre Frey"
-              className="w-[23%]"
-            />
-            <Image
-              src={casal_logo}
-              alt="Casal"
-              className="w-[29%] brightness-0 invert-[10.6%]"
-            />
-          </LogoGrid>
-          <p className="italic">Et tant d'autres…</p>
-        </SideVisualSection>
+        <FabricsSection visual={<MaisonMatronReel />} action={<Actions />} />
 
         <SectionSeparator />
 
-        <WideVisualSection
-          visual={
-            <figure>
-              <Image
-                src={genoa_velvet}
-                alt="Gros plan d'un velours de Gênes à motif floral : roses et boutons rose corail, feuillage vert sombre en relief, sur fond blanc."
-                sizes="100vw"
-              />
-            </figure>
-          }
-          action={
-            <>
-              <CallToActions>
-                <CallToAction href="#booking">
-                  Votre expertise offerte
-                </CallToAction>
-                <CallToAction href="tel:+41215394675" tone="secondary">
-                  +41 21 539 46 75
-                </CallToAction>
-              </CallToActions>
-              <CallToActionDetails>
-                <CallToActionDetail>Visite chez vous</CallToActionDetail>
-                <CallToActionDetail>
-                  Évaluation de votre mobilier
-                </CallToActionDetail>
-              </CallToActionDetails>
-            </>
-          }
-        >
+        <WideVisualSection visual={<GenoaVelvet />} action={<Actions />}>
           <SectionTitle>L'atelier vient à vous, et c'est offert</SectionTitle>
           <p>
             Quel que soit votre projet, nous venons d'abord en discuter avec
@@ -301,35 +127,7 @@ const Home = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection
-          visual={
-            <figure>
-              <Image
-                src={louis_philippe_sofa}
-                alt="Canapé Louis-Philippe en bois sculpté, dossier couronné d'une palmette et accoudoirs en volute, garni d'un tissu ivoire à rayures bordeaux et petits bouquets de fleurs, sur fond blanc."
-                sizes="100vw"
-              />
-            </figure>
-          }
-          action={
-            <>
-              <CallToActions>
-                <CallToAction href="#booking">
-                  Votre expertise offerte
-                </CallToAction>
-                <CallToAction href="tel:+41215394675" tone="secondary">
-                  +41 21 539 46 75
-                </CallToAction>
-              </CallToActions>
-              <CallToActionDetails>
-                <CallToActionDetail>Visite chez vous</CallToActionDetail>
-                <CallToActionDetail>
-                  Évaluation de votre mobilier
-                </CallToActionDetail>
-              </CallToActionDetails>
-            </>
-          }
-        >
+        <WideVisualSection visual={<LouisPhilippeSofa />} action={<Actions />}>
           <SectionTitle>Le processus &amp; la restitution</SectionTitle>
           <p>
             Nous prenons en charge le transport de vos pièces dans le plus grand
@@ -349,33 +147,8 @@ const Home = () => (
         <SectionSeparator />
 
         <SideVisualSection
-          visual={
-            <figure>
-              <AutoplayVideo
-                src="/visuals/voltaire-orbital-macro.mp4"
-                poster={voltaire_poster}
-                label="Un fauteuil Voltaire en bois clair, garni d'un tissu gris à feuillage de velours jaune d'or, puis un gros plan de ce tissu."
-              />
-            </figure>
-          }
-          action={
-            <>
-              <CallToActions>
-                <CallToAction href="#booking">
-                  Votre expertise offerte
-                </CallToAction>
-                <CallToAction href="tel:+41215394675" tone="secondary">
-                  +41 21 539 46 75
-                </CallToAction>
-              </CallToActions>
-              <CallToActionDetails>
-                <CallToActionDetail>Visite chez vous</CallToActionDetail>
-                <CallToActionDetail>
-                  Évaluation de votre mobilier
-                </CallToActionDetail>
-              </CallToActionDetails>
-            </>
-          }
+          visual={<VoltaireOrbitalMacro />}
+          action={<Actions />}
         >
           <SectionTitle>4 saisons, 4 privilèges</SectionTitle>
           <SectionSubtitle>
@@ -386,35 +159,7 @@ const Home = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection
-          visual={
-            <figure>
-              <Image
-                src={club_armchair}
-                alt="Une femme en tailleur blanc et bottines noires, assise jambes croisées dans un fauteuil club blanc aux accotoirs de bois sombre bordés de clous, sur fond blanc."
-                sizes="100vw"
-              />
-            </figure>
-          }
-          action={
-            <>
-              <CallToActions>
-                <CallToAction href="#booking">
-                  Votre expertise offerte
-                </CallToAction>
-                <CallToAction href="tel:+41215394675" tone="secondary">
-                  +41 21 539 46 75
-                </CallToAction>
-              </CallToActions>
-              <CallToActionDetails>
-                <CallToActionDetail>Visite chez vous</CallToActionDetail>
-                <CallToActionDetail>
-                  Évaluation de votre mobilier
-                </CallToActionDetail>
-              </CallToActionDetails>
-            </>
-          }
-        >
+        <WideVisualSection visual={<ClubArmchair />} action={<Actions />}>
           <SectionTitle>
             Vous travaillez avec un décorateur d'intérieur ?
           </SectionTitle>
@@ -428,130 +173,15 @@ const Home = () => (
 
         <SectionSeparator />
 
-        <ReviewsSection
-          title={<SectionTitle>Ils nous ont confié leurs pièces</SectionTitle>}
-        >
-          <figure>
-            <blockquote>
-              <Quote>
-                « Des conseils avisés, une superbe sélection de tissus et un
-                savoir-faire minutieux. Nous sommes ravis de nos nouvelles
-                chaises et nous ferons sans aucun doute à nouveau appel à M.
-                Matron. »
-              </Quote>
-            </blockquote>
-            <Reviewer>- Anne-Claude</Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « Nous avons remis 6 chaises de salon pour mettre une nouvelle
-                tapisserie et sommes très satisfaits du résultat. Tissu de
-                qualité, finitions impeccables, livraison dans les (courts)
-                délais et un contact très agréable et professionnel. Nous
-                pouvons recommander Tapissier Matron. »
-              </Quote>
-            </blockquote>
-            <Reviewer>- Stephan</Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « Grand professionnalisme sans oublier une bienveillance et
-                sympathie exceptionnelles. »
-              </Quote>
-            </blockquote>
-            <Reviewer>- MP</Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « Je recommande Monsieur Matron qui a effectué une très jolie
-                restauration sur mon fauteuil. Travail au top. »
-              </Quote>
-            </blockquote>
-            <Reviewer>- Tony</Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « Je recommande M. Matron, il a restauré mon fauteuil, le
-                travail est parfait. »
-              </Quote>
-            </blockquote>
-            <Reviewer>- Trévis</Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « Très bon service, bonne écoute du client, patience le temps
-                que le choix soit établi, livraison conforme aux attentes et
-                travail très propre. »
-              </Quote>
-            </blockquote>
-            <Reviewer>- Santiago</Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « Je ne puis que recommander la Maison Matron qui est une belle
-                entreprise familiale. De bon conseil avec un travail soigné et
-                de qualité. Absolument ravie du rendu concernant un vieux
-                fauteuil de famille, alors n'hésitez pas et prenez rapidement
-                contact avec eux. »
-              </Quote>
-            </blockquote>
-            <Reviewer>- Annick</Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « De sincères remerciements à la famille Matron pour leur
-                intervention. Ils ont littéralement sauvé notre enfilade en teck
-                qui avait subi des dommages liés à une infiltration. »
-              </Quote>
-            </blockquote>
-            <Reviewer>- Sebastien</Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>
-                « Bon contact et bonne expertise. Mon fauteuil a maintenant un
-                tissu magnifique ! Il commence sa seconde vie ! Merci. Je
-                recommande cet artisan. »
-              </Quote>
-            </blockquote>
-            <Reviewer>- Aline</Reviewer>
-          </figure>
-          <figure>
-            <blockquote>
-              <Quote>« Superbe travail ! Merci. »</Quote>
-            </blockquote>
-            <Reviewer>- Anne</Reviewer>
-          </figure>
+        <ReviewsSection>
+          <SectionTitle>Ils nous ont confié leurs pièces</SectionTitle>
         </ReviewsSection>
 
         <SectionSeparator />
 
-        <LeadSheet
-          id="booking"
-          form_id="luxe"
-          title={
-            <SectionTitle>L'atelier vient à vous, c'est offert.</SectionTitle>
-          }
-          send="Je réserve ma visite"
-        >
-          <Field name="given-name" label="Votre prénom" />
-          <Field name="family-name" label="Votre nom de famille" />
-          <Field name="tel" label="Votre numéro de téléphone" />
-          <Field name="email" label="Votre email" />
-          <Field name="postal-code" label="Votre code postal" />
-          <Field
-            name="freetext"
-            label="Votre projet, en quelques mots"
-            className="col-span-full mt-3"
-          />
-        </LeadSheet>
+        <BookingSection form_id="luxe">
+          <SectionTitle>L'atelier vient à vous, c'est offert.</SectionTitle>
+        </BookingSection>
       </div>
       <Footer />
     </Watermarked>

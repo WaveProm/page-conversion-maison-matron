@@ -6,20 +6,11 @@ import { Frame } from "./frame";
 import styles from "./hero.module.css";
 import { Quote, SectionSubtitle } from "./typography";
 
-type hero_props = { children: ReactNode };
+type hero_props = { video: ReactNode; children: ReactNode };
 
-export const Hero = ({ children }: hero_props) => (
+export const Hero = ({ video, children }: hero_props) => (
   <section className="relative overflow-hidden bg-ink text-paper">
-    <video
-      src="/video/maison-matron-hero.mp4"
-      poster="/video/maison-matron-hero-poster.avif"
-      autoPlay
-      muted
-      loop
-      playsInline
-      aria-hidden
-      className="absolute inset-0 size-full object-cover"
-    />
+    {video}
     <div aria-hidden className="absolute inset-0 bg-ink/50" />
     <div
       aria-hidden
@@ -54,32 +45,42 @@ export const Hero = ({ children }: hero_props) => (
           className="mt-[calc(100%*5.37/123.95)] ml-[calc(100%*53.12/123.95)] h-auto w-[calc(100%*12.31/123.95)]"
         />
       </div>
-      <div className="copy-inset flex flex-col items-start">
-        <Frame className="mb-4 w-full md:w-fit">
-          <p className="text-[17px] leading-[1.45]">
-            Artisan tapissier et ébéniste depuis 4 générations
-          </p>
-        </Frame>
-        <h1 className="mb-4 font-display text-[36px] leading-[1.06] italic lg:text-[50px]">
-          Transformez vos meubles en pièce unique
-        </h1>
-        <p className="mb-4 text-[17px] leading-[1.45]">
-          Profitez d'une collection de tissus d'exception
-        </p>
-        <div className="mb-4">
-          <SectionSubtitle>+20'000 pièces</SectionSubtitle>
-          <SectionSubtitle>+5'000 clients</SectionSubtitle>
-        </div>
-        <div className="w-full md:w-fit md:*:@container-normal">
-          <Frame className="mb-4 md:contain-inline-size">
-            <Quote>
-              « Des conseils avisés, une superbe sélection de tissus et un
-              savoir-faire minutieux. » - Anne-Claude
-            </Quote>
-          </Frame>
-          {children}
-        </div>
-      </div>
+      <div className="copy-inset flex flex-col items-start">{children}</div>
     </div>
   </section>
+);
+
+type hero_copy_props = { children: ReactNode };
+
+export const HeroOvertitle = ({ children }: hero_copy_props) => (
+  <Frame className="mb-4 w-full md:w-fit">
+    <p className="text-[17px] leading-[1.45]">{children}</p>
+  </Frame>
+);
+
+export const HeroTitle = ({ children }: hero_copy_props) => (
+  <h1 className="mb-4 font-display text-[36px] leading-[1.06] italic lg:text-[50px]">
+    {children}
+  </h1>
+);
+
+export const HeroLead = ({ children }: hero_copy_props) => (
+  <p className="mb-4 text-[17px] leading-[1.45]">{children}</p>
+);
+
+export const HeroFigures = () => (
+  <div className="mb-4">
+    <SectionSubtitle>+20'000 pièces créées</SectionSubtitle>
+    <SectionSubtitle>+5'000 clients satisfaits</SectionSubtitle>
+  </div>
+);
+
+export const HeroClose = ({ children }: hero_copy_props) => (
+  <div className="w-full md:w-fit md:*:@container-normal">{children}</div>
+);
+
+export const HeroQuote = ({ children }: hero_copy_props) => (
+  <Frame className="mb-4 md:contain-inline-size">
+    <Quote>{children}</Quote>
+  </Frame>
 );
