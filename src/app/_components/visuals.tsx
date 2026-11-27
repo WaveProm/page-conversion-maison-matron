@@ -110,7 +110,7 @@ export const SewingBeads = () => (
     <AutoplayVideo
       src="/visuals/sewing-beads.mp4"
       poster={sewing_beads_poster}
-      label="Une couturière en veste bleu ciel coud des perles, à la main, sur une robe de mariée posée devant elle, dans un atelier."
+      label="Gros plan des mains d'une couturière qui coud, à l'aiguille, des perles et des paillettes sur un tissu gris."
     />
   </figure>
 );
