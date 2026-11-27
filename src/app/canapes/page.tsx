@@ -102,7 +102,7 @@ const SofaRestoration = () => (
         <SectionSeparator />
 
         <div id="tissu">
-          <SideVisualSection
+          <WideVisualSection
             visual={<LionHeadSofa />}
             action={<Actions tone="secondary" />}
           >
@@ -112,7 +112,7 @@ const SofaRestoration = () => (
               chez vous, parmi des milliers.
             </p>
             <p>Nous le restaurons, le réparons ou en refaisons la garniture.</p>
-          </SideVisualSection>
+          </WideVisualSection>
         </div>
 
         <SectionSeparator />

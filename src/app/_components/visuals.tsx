@@ -72,7 +72,7 @@ export const LionHeadSofa = () => (
     <Image
       src={lion_head_sofa}
       alt="Canapé en bois sombre aux accoudoirs roulés terminés par des têtes de lion sculptées, garni d'un tissu orangé à fines rayures crème, sur fond blanc."
-      sizes="(min-width: 1024px) 50vw, 100vw"
+      sizes="100vw"
     />
   </figure>
 );
