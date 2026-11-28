@@ -120,7 +120,7 @@ const CustomCurtains = () => (
         <SectionSeparator />
 
         <WideVisualSection
-          visual={<RedTreePrint />}
+          visual={<SewingBeads />}
           action={<Actions tone="secondary" />}
         >
           <SectionTitle>L'atelier vient à vous, et c'est offert</SectionTitle>
@@ -149,7 +149,7 @@ const CustomCurtains = () => (
         <SectionSeparator />
 
         <WideVisualSection
-          visual={<SewingBeads />}
+          visual={<RedTreePrint />}
           action={<Actions tone="secondary" />}
         >
           <SectionTitle>Le processus &amp; la restitution</SectionTitle>
