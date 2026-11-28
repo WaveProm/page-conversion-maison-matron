@@ -25,8 +25,8 @@ import { SectionSubtitle, SectionTitle } from "../_components/typography";
 import {
   CurtainWrappedGifts,
   LionHeadSofa,
-  LouisPhilippeSofa,
   OxbloodChesterfield,
+  ScissorsThroughLeather,
   TuftedLeatherSalon,
 } from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
@@ -178,7 +178,7 @@ const SofaRestoration = () => (
 
         <div id="rembourrage">
           <WideVisualSection
-            visual={<LouisPhilippeSofa />}
+            visual={<ScissorsThroughLeather />}
             action={<Actions tone="secondary" />}
           >
             <SectionTitle>Le processus &amp; la restitution</SectionTitle>
