@@ -90,14 +90,13 @@ export const ClubArmchair = () => (
 export const VenetianBlindsThroughTheDay = () => (
   <CrossfadeCycle
     sources={[
-      "/visuals/stores-venitiens-plein-soleil.jpg",
-      "/visuals/stores-venitiens-fin-de-journee.jpg",
-      "/visuals/stores-venitiens-soir.jpg",
+      "/visuals/stores-venitiens-salon-jour.jpg",
+      "/visuals/stores-venitiens-salon-soir.jpg",
     ]}
-    still={1}
-    width={2040}
-    height={1352}
-    alt="Trois stores vénitiens en bois foncé, lames fermées, devant une grande baie : la lumière passe entre les lames, blanche en plein soleil, dorée en fin de journée, bleue le soir."
+    still={0}
+    width={3472}
+    height={2304}
+    alt="Un salon aux murs clairs, un canapé en velours bordeaux et une table basse en marbre noir devant une rangée de stores vénitiens en bois foncé, lames fermées : le jour, la lumière passe entre les lames et s'étire au sol ; le soir, les stores luisent d'une lumière chaude."
     sizes="100vw"
   />
 );

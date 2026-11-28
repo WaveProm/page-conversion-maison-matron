@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils";
 import styles from "./crossfade_cycle.module.css";
 
 type crossfade_cycle_props = {
-  sources: readonly [string, string, string];
-  still: 0 | 1 | 2;
+  sources: readonly [string, string];
+  still: 0 | 1;
   width: number;
   height: number;
   alt: string;
