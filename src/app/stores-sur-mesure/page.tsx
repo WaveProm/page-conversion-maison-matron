@@ -102,10 +102,6 @@ const CustomBlinds = () => (
 
         <SectionSeparator />
 
-        <FabricsSection action={<Actions tone="secondary" />} />
-
-        <SectionSeparator />
-
         <WideVisualSection action={<Actions tone="secondary" />}>
           <SectionTitle>L'atelier vient à vous, et c'est offert</SectionTitle>
           <p>
@@ -126,6 +122,10 @@ const CustomBlinds = () => (
           <SectionSubtitle>Nous étudions vos fenêtres</SectionSubtitle>
           <p>Leurs mesures, et la pose qui leur convient.</p>
         </WideVisualSection>
+
+        <SectionSeparator />
+
+        <FabricsSection action={<Actions tone="secondary" />} />
 
         <SectionSeparator />
 
