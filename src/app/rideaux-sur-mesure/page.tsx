@@ -28,6 +28,7 @@ import {
   OceanView,
   RedTreePrint,
   SewingBeads,
+  TerracottaVelvetCurtains,
 } from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
@@ -89,7 +90,10 @@ const CustomCurtains = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection action={<Actions tone="secondary" />}>
+        <WideVisualSection
+          visual={<TerracottaVelvetCurtains />}
+          action={<Actions tone="secondary" />}
+        >
           <SectionTitle>
             Transformez vos pièces avec des rideaux à votre image.
           </SectionTitle>

@@ -180,6 +180,18 @@ export const CopperCurtains = () => (
   </figure>
 );
 
+export const TerracottaVelvetCurtains = () => (
+  <figure>
+    <Image
+      src="/visuals/rideaux-velours-terracotta-jardin.jpg"
+      width={3000}
+      height={2000}
+      alt="Deux grands rideaux unis en velours de coton terracotta, tombant du plafond au sol de part et d'autre d'une baie vitrée ouverte sur un jardin verdoyant, dans une pièce vide au sol de terrazzo poli et au mur de lattes de bois sombre."
+      sizes="100vw"
+    />
+  </figure>
+);
+
 export const CurtainWrappedGifts = () => (
   <AutoplayVideo
     src="/video/curtain-wrapped-gifts.mp4"
