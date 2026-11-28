@@ -2,6 +2,7 @@ import Image from "next/image";
 import { AutoplayVideo } from "@/components/autoplay_video";
 import five_chairs from "../../../public/visuals/5-chaises.jpg";
 import lion_head_sofa from "../../../public/visuals/canape-lions.jpg";
+import scissors_poster from "../../../public/visuals/ciseaux-cuir-poster.jpg";
 import club_armchair from "../../../public/visuals/club-armchair.jpg";
 import louis_philippe_sofa from "../../../public/visuals/louis-philippe.jpg";
 import reel_poster from "../../../public/visuals/maison-matron-reel-poster.jpg";
@@ -262,6 +263,16 @@ export const SewingBeads = () => (
       src="/visuals/sewing-beads.mp4"
       poster={sewing_beads_poster}
       label="Gros plan des mains d'une couturière qui coud, à l'aiguille, des perles et des paillettes sur un tissu gris."
+    />
+  </figure>
+);
+
+export const ScissorsThroughLeather = () => (
+  <figure>
+    <AutoplayVideo
+      src="/visuals/ciseaux-cuir.mp4"
+      poster={scissors_poster}
+      label="Gros plan de ciseaux de tailleur qui glissent dans un cuir sombre et le découpent, sous une lumière chaude."
     />
   </figure>
 );
