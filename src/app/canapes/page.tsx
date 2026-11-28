@@ -21,12 +21,13 @@ import { OfferSection, OfferTitle } from "../_components/offer_section";
 import { ReviewsSection } from "../_components/reviews_section";
 import { SectionSeparator } from "../_components/section_separator";
 import { ServicesSection } from "../_components/services_section";
-import { SideVisualSection } from "../_components/side_visual_section";
 import { SectionSubtitle, SectionTitle } from "../_components/typography";
 import {
   CurtainWrappedGifts,
   LionHeadSofa,
   LouisPhilippeSofa,
+  OxbloodChesterfield,
+  TuftedLeatherSalon,
 } from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
@@ -50,7 +51,7 @@ const Actions = ({ tone }: actions_props) => (
 
 const SofaRestoration = () => (
   <main>
-    <Hero video={null}>
+    <Hero video={<TuftedLeatherSalon />}>
       <HeroOvertitle>Artisan tapissier depuis 4 générations</HeroOvertitle>
       <HeroTitle>
         Restauration et rembourrage de canapés à Genève et Vaud, depuis 1921
@@ -122,32 +123,16 @@ const SofaRestoration = () => (
         <SectionSeparator />
 
         <div id="cuir">
-          <SideVisualSection action={<Actions tone="secondary" />}>
+          <WideVisualSection
+            visual={<OxbloodChesterfield />}
+            action={<Actions tone="secondary" />}
+          >
             <SectionTitle>
               Votre canapé en cuir, restauré plutôt que remplacé
             </SectionTitle>
             <p>Nous restaurons, réparons ou refaisons votre canapé en cuir.</p>
             <p>Vous gardez le canapé que vous aimez.</p>
-          </SideVisualSection>
-        </div>
-
-        <SectionSeparator />
-
-        <div id="rembourrage">
-          <SideVisualSection action={<Actions tone="secondary" />}>
-            <SectionTitle>
-              Le rembourrage de votre canapé, refait sous le tissu comme sous le
-              cuir
-            </SectionTitle>
-            <p>
-              Nous refaisons le rembourrage de votre canapé, son assise
-              comprise.
-            </p>
-            <p>
-              Puis nous le regarnissons, dans le tissu choisi avec vous ou dans
-              son cuir.
-            </p>
-          </SideVisualSection>
+          </WideVisualSection>
         </div>
 
         <SectionSeparator />
@@ -182,23 +167,29 @@ const SofaRestoration = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection
-          visual={<LouisPhilippeSofa />}
-          action={<Actions tone="secondary" />}
-        >
-          <SectionTitle>Le processus &amp; la restitution</SectionTitle>
-          <p>
-            Nos tapissiers restaurent et rembourrent votre canapé, dans le tissu
-            choisi avec vous ou dans son cuir.
-          </p>
-          <p>Nous vous tenons informé durant toute la restauration.</p>
-          <p>
-            Lorsque votre canapé est prêt, nous fixons avec vous le jour et
-            l'heure de sa restitution.
-          </p>
-          <p>Enfin, nous vous rendons votre canapé :</p>
-          <SectionSubtitle>une pièce unique, à votre image.</SectionSubtitle>
-        </WideVisualSection>
+        <div id="rembourrage">
+          <WideVisualSection
+            visual={<LouisPhilippeSofa />}
+            action={<Actions tone="secondary" />}
+          >
+            <SectionTitle>Le processus &amp; la restitution</SectionTitle>
+            <p>
+              Nos tapissiers restaurent et rembourrent votre canapé, dans le
+              tissu choisi avec vous ou dans son cuir.
+            </p>
+            <p>
+              Nous refaisons son rembourrage, assise comprise, puis nous le
+              recouvrons du tissu choisi ou de son cuir.
+            </p>
+            <p>Nous vous tenons informé durant toute la restauration.</p>
+            <p>
+              Lorsque votre canapé est prêt, nous fixons avec vous le jour et
+              l'heure de sa restitution.
+            </p>
+            <p>Enfin, nous vous rendons votre canapé :</p>
+            <SectionSubtitle>une pièce unique, à votre image.</SectionSubtitle>
+          </WideVisualSection>
+        </div>
 
         <SectionSeparator />
 
