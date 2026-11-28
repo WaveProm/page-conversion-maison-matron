@@ -94,7 +94,7 @@ const SofaRestoration = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection action={<Actions tone="secondary" />}>
+        <CenteredSection>
           <SectionTitle>
             Transformez votre salon avec un canapé à votre image.
           </SectionTitle>
@@ -102,7 +102,10 @@ const SofaRestoration = () => (
             Nous nous occupons de tout, du rembourrage de l'assise au tissu ou
             au cuir qui l'habille.
           </p>
-        </WideVisualSection>
+          <div className="mt-8 lg:mt-12">
+            <Actions tone="secondary" />
+          </div>
+        </CenteredSection>
 
         <SectionSeparator />
 
