@@ -146,6 +146,20 @@ export const VenetianBlindsThroughTheDay = () => (
   />
 );
 
+export const RomanBlindsThroughTheDay = () => (
+  <CrossfadeCycle
+    sources={[
+      "/visuals/stores-bateau-salon-jour.jpg",
+      "/visuals/stores-bateau-salon-soir.jpg",
+    ]}
+    still={0}
+    width={3472}
+    height={2304}
+    alt="Un salon aux murs blancs, un canapé arrondi écru sur un tapis à motifs de vagues devant deux grands stores bateau en tissu gris tissé, baissés : le jour, le soleil filtre à travers la toile ; le soir, une lumière chaude éclaire le haut des stores."
+    sizes="100vw"
+  />
+);
+
 export const CopperCurtains = () => (
   <figure>
     <Image
