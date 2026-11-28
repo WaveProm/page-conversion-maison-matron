@@ -68,6 +68,30 @@ export const GenoaVelvet = () => (
   </figure>
 );
 
+export const RedTreePrint = () => (
+  <figure>
+    <Image
+      src="/visuals/tissu-arbres-rouge.jpg"
+      width={2160}
+      height={1440}
+      alt="Gros plan d'un tissu imprimé sur fond rouge vif : deux grands arbres aux troncs blancs étirés en volutes, feuillages blancs et orange, coraux bleu outremer et bleu ciel."
+      sizes="100vw"
+    />
+  </figure>
+);
+
+export const BlackFloralPrint = () => (
+  <figure>
+    <Image
+      src="/visuals/tissu-fleurs-fond-noir.jpg"
+      width={2160}
+      height={2700}
+      alt="Gros plan d'un tissu imprimé sur fond noir : fleurs stylisées rose vif et rouges, feuilles de ginkgo crème, corolles turquoise et bleu ciel, pompons jaunes et fleurs orange, reliées par de fins traits bleu clair."
+      sizes="(min-width: 1024px) 50vw, 100vw"
+    />
+  </figure>
+);
+
 export const TeakSideboard = () => (
   <figure>
     <Image
@@ -164,6 +188,18 @@ export const CopperCurtains = () => (
       src={copper_curtains}
       alt="Deux grands rideaux dans un tissu cuivré à motif de chevrons, suspendus à une tringle à œillets sous une charpente apparente, derrière un fauteuil et une table basse en bois."
       sizes="(min-width: 1024px) 50vw, 100vw"
+    />
+  </figure>
+);
+
+export const TerracottaVelvetCurtains = () => (
+  <figure>
+    <Image
+      src="/visuals/rideaux-velours-terracotta-jardin.jpg"
+      width={3000}
+      height={2000}
+      alt="Deux grands rideaux unis en velours de coton terracotta, tombant du plafond au sol de part et d'autre d'une baie vitrée ouverte sur un jardin verdoyant, dans une pièce vide au sol de terrazzo poli et au mur de lattes de bois sombre."
+      sizes="100vw"
     />
   </figure>
 );

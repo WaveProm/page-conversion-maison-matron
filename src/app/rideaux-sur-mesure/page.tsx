@@ -23,11 +23,12 @@ import { SectionSeparator } from "../_components/section_separator";
 import { ServicesSection } from "../_components/services_section";
 import { SectionSubtitle, SectionTitle } from "../_components/typography";
 import {
-  CopperCurtains,
+  BlackFloralPrint,
   CurtainWrappedGifts,
-  GenoaVelvet,
   OceanView,
+  RedTreePrint,
   SewingBeads,
+  TerracottaVelvetCurtains,
 } from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
@@ -89,7 +90,10 @@ const CustomCurtains = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection action={<Actions tone="secondary" />}>
+        <WideVisualSection
+          visual={<TerracottaVelvetCurtains />}
+          action={<Actions tone="secondary" />}
+        >
           <SectionTitle>
             Transformez vos pièces avec des rideaux à votre image.
           </SectionTitle>
@@ -113,14 +117,14 @@ const CustomCurtains = () => (
         <SectionSeparator />
 
         <FabricsSection
-          visual={<CopperCurtains />}
+          visual={<BlackFloralPrint />}
           action={<Actions tone="secondary" />}
         />
 
         <SectionSeparator />
 
         <WideVisualSection
-          visual={<GenoaVelvet />}
+          visual={<SewingBeads />}
           action={<Actions tone="secondary" />}
         >
           <SectionTitle>L'atelier vient à vous, et c'est offert</SectionTitle>
@@ -149,7 +153,7 @@ const CustomCurtains = () => (
         <SectionSeparator />
 
         <WideVisualSection
-          visual={<SewingBeads />}
+          visual={<RedTreePrint />}
           action={<Actions tone="secondary" />}
         >
           <SectionTitle>Le processus &amp; la restitution</SectionTitle>
