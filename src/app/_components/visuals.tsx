@@ -80,6 +80,18 @@ export const RedTreePrint = () => (
   </figure>
 );
 
+export const BlackFloralPrint = () => (
+  <figure>
+    <Image
+      src="/visuals/tissu-fleurs-fond-noir.jpg"
+      width={2160}
+      height={2700}
+      alt="Gros plan d'un tissu imprimé sur fond noir : fleurs stylisées rose vif et rouges, feuilles de ginkgo crème, corolles turquoise et bleu ciel, pompons jaunes et fleurs orange, reliées par de fins traits bleu clair."
+      sizes="(min-width: 1024px) 50vw, 100vw"
+    />
+  </figure>
+);
+
 export const TeakSideboard = () => (
   <figure>
     <Image

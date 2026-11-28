@@ -23,7 +23,7 @@ import { SectionSeparator } from "../_components/section_separator";
 import { ServicesSection } from "../_components/services_section";
 import { SectionSubtitle, SectionTitle } from "../_components/typography";
 import {
-  CopperCurtains,
+  BlackFloralPrint,
   CurtainWrappedGifts,
   OceanView,
   RedTreePrint,
@@ -117,7 +117,7 @@ const CustomCurtains = () => (
         <SectionSeparator />
 
         <FabricsSection
-          visual={<CopperCurtains />}
+          visual={<BlackFloralPrint />}
           action={<Actions tone="secondary" />}
         />
 
