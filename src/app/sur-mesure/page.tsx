@@ -26,6 +26,8 @@ import {
   CurtainWrappedGifts,
   FiveChairs,
   LouisPhilippeSofa,
+  MaisonMatronHero,
+  TeakSideboard,
 } from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
@@ -49,7 +51,7 @@ const Actions = ({ tone }: actions_props) => (
 
 const CustomFurniture = () => (
   <main>
-    <Hero video={null}>
+    <Hero video={<MaisonMatronHero />}>
       <HeroOvertitle>Artisan ébéniste depuis 4 générations</HeroOvertitle>
       <HeroTitle>
         Meubles et chaises sur mesure à Genève et Vaud, depuis 1921
@@ -119,7 +121,7 @@ const CustomFurniture = () => (
         <SectionSeparator />
 
         <WideVisualSection
-          visual={<LouisPhilippeSofa />}
+          visual={<TeakSideboard />}
           action={<Actions tone="secondary" />}
         >
           <SectionTitle>L'atelier vient à vous, et c'est offert</SectionTitle>
@@ -146,7 +148,10 @@ const CustomFurniture = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection action={<Actions tone="secondary" />}>
+        <WideVisualSection
+          visual={<LouisPhilippeSofa />}
+          action={<Actions tone="secondary" />}
+        >
           <SectionTitle>Le processus &amp; la restitution</SectionTitle>
           <p>Nos artisans façonnent votre meuble à vos mesures, en atelier.</p>
           <p>

@@ -22,7 +22,13 @@ import { SectionSeparator } from "../_components/section_separator";
 import { ServicesSection } from "../_components/services_section";
 import { SideVisualSection } from "../_components/side_visual_section";
 import { SectionSubtitle, SectionTitle } from "../_components/typography";
-import { CurtainWrappedGifts, FiveChairs } from "../_components/visuals";
+import {
+  CurtainWrappedGifts,
+  FiveChairs,
+  LouisPhilippeSofa,
+  TeakSideboard,
+  WalnutSecretary,
+} from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
 
@@ -85,7 +91,10 @@ const FurnitureRestoration = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection action={<Actions tone="secondary" />}>
+        <SideVisualSection
+          visual={<WalnutSecretary />}
+          action={<Actions tone="secondary" />}
+        >
           <SectionTitle>
             Transformez votre meuble ancien en pièce maîtresse de votre
             intérieur.
@@ -105,7 +114,7 @@ const FurnitureRestoration = () => (
             Chaque meuble est restauré à l'atelier, puis vous revient prêt à
             servir de nouveau.
           </p>
-        </WideVisualSection>
+        </SideVisualSection>
 
         <SectionSeparator />
 
@@ -124,7 +133,10 @@ const FurnitureRestoration = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection action={<Actions tone="secondary" />}>
+        <WideVisualSection
+          visual={<TeakSideboard />}
+          action={<Actions tone="secondary" />}
+        >
           <SectionTitle>L'atelier vient à vous, et c'est offert</SectionTitle>
           <p>
             Quel que soit votre meuble ancien, nous venons d'abord l'examiner
@@ -147,7 +159,10 @@ const FurnitureRestoration = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection action={<Actions tone="secondary" />}>
+        <WideVisualSection
+          visual={<LouisPhilippeSofa />}
+          action={<Actions tone="secondary" />}
+        >
           <SectionTitle>Le processus &amp; la restitution</SectionTitle>
           <p>Nos ébénistes restaurent votre meuble à l'atelier.</p>
           <p>Nous vous tenons informé durant toute la restauration.</p>
