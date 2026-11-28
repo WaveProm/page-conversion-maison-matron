@@ -26,6 +26,7 @@ import {
   CurtainWrappedGifts,
   GenoaVelvet,
   OceanView,
+  SewingBeads,
 } from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
@@ -142,7 +143,10 @@ const CustomCurtains = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection action={<Actions tone="secondary" />}>
+        <WideVisualSection
+          visual={<SewingBeads />}
+          action={<Actions tone="secondary" />}
+        >
           <SectionTitle>Le processus &amp; la restitution</SectionTitle>
           <p>Nos courtepointières confectionnent vos rideaux à vos mesures.</p>
           <p>Nous vous tenons informé durant toute la confection.</p>

@@ -6,6 +6,7 @@ import club_armchair from "../../../public/visuals/club-armchair.jpg";
 import louis_philippe_sofa from "../../../public/visuals/louis-philippe.jpg";
 import reel_poster from "../../../public/visuals/maison-matron-reel-poster.jpg";
 import copper_curtains from "../../../public/visuals/rideaux-cuivres-salon.jpg";
+import sewing_beads_poster from "../../../public/visuals/sewing-beads-poster.jpg";
 import genoa_velvet from "../../../public/visuals/velours-gene.jpg";
 import voltaire_poster from "../../../public/visuals/voltaire-orbital-macro-poster.jpg";
 
@@ -113,4 +114,14 @@ export const CurtainWrappedGifts = () => (
     poster="/video/curtain-wrapped-gifts-poster.jpg"
     cover
   />
+);
+
+export const SewingBeads = () => (
+  <figure>
+    <AutoplayVideo
+      src="/visuals/sewing-beads.mp4"
+      poster={sewing_beads_poster}
+      label="Gros plan des mains d'une couturière qui coud, à l'aiguille, des perles et des paillettes sur un tissu gris."
+    />
+  </figure>
 );
