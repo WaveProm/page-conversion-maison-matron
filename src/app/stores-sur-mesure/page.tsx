@@ -133,7 +133,7 @@ const CustomBlinds = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection action={<Actions tone="secondary" />}>
+        <CenteredSection>
           <SectionTitle>Le processus &amp; la restitution</SectionTitle>
           <p>Nous fabriquons vos stores à vos mesures.</p>
           <p>Nous vous tenons informé durant toute la fabrication.</p>
@@ -145,7 +145,10 @@ const CustomBlinds = () => (
           <SectionSubtitle>
             vos fenêtres habillées, à votre image.
           </SectionSubtitle>
-        </WideVisualSection>
+          <div className="mt-8 lg:mt-12">
+            <Actions tone="secondary" />
+          </div>
+        </CenteredSection>
 
         <SectionSeparator />
 
