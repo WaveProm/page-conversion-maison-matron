@@ -29,6 +29,17 @@ export const OceanView = () => (
   />
 );
 
+export const IvoryDamaskCurtain = () => (
+  <Image
+    src="/visuals/rideau-damas-ivoire.jpg"
+    alt="Un rideau en damas ivoire à motifs floraux dorés, tombant en plis profonds et drapé au sol, à côté d'une potiche en porcelaine blanche et or, devant un mur beige à moulures."
+    fill
+    preload
+    sizes="100vw"
+    className="object-cover"
+  />
+);
+
 export const SunlightThroughBlinds = () => (
   <AutoplayVideo
     src="/video/stores-sur-mesure-hero.mp4"
