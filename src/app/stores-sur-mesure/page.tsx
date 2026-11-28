@@ -24,7 +24,7 @@ import { ServicesSection } from "../_components/services_section";
 import { SectionSubtitle, SectionTitle } from "../_components/typography";
 import {
   CurtainWrappedGifts,
-  RomanBlindsThroughTheDay,
+  RomanBlindsEvening,
   SunlightThroughBlinds,
   VenetianBlindsThroughTheDay,
 } from "../_components/visuals";
@@ -105,7 +105,7 @@ const CustomBlinds = () => (
 
         <WideVisualSection
           action={<Actions tone="secondary" />}
-          visual={<RomanBlindsThroughTheDay />}
+          visual={<RomanBlindsEvening />}
         >
           <SectionTitle>L'atelier vient à vous, et c'est offert</SectionTitle>
           <p>
