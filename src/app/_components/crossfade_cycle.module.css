@@ -1,11 +1,19 @@
-.cycle > :nth-child(2) {
-  will-change: opacity;
-  animation: second 4.5s ease-in-out infinite;
+@media (prefers-reduced-motion: no-preference) {
+  .cycle > :nth-child(2) {
+    will-change: opacity;
+    animation: second 4.5s ease-in-out infinite;
+  }
+
+  .cycle > :nth-child(3) {
+    will-change: opacity;
+    animation: third 4.5s ease-in-out infinite;
+  }
 }
 
-.cycle > :nth-child(3) {
-  will-change: opacity;
-  animation: third 4.5s ease-in-out infinite;
+@media (prefers-reduced-motion: reduce) {
+  .cycle > :not(:first-child, [data-still]) {
+    opacity: 0;
+  }
 }
 
 @keyframes second {
@@ -34,17 +42,5 @@
   }
   100% {
     opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cycle > * {
-    animation: none;
-    opacity: 0;
-  }
-
-  .cycle > :first-child,
-  .cycle > [data-still] {
-    opacity: 1;
   }
 }
