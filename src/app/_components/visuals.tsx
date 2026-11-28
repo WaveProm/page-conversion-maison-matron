@@ -7,6 +7,7 @@ import reel_poster from "../../../public/visuals/maison-matron-reel-poster.jpg";
 import copper_curtains from "../../../public/visuals/rideaux-cuivres-salon.jpg";
 import genoa_velvet from "../../../public/visuals/velours-gene.jpg";
 import voltaire_poster from "../../../public/visuals/voltaire-orbital-macro-poster.jpg";
+import { CrossfadeCycle } from "./crossfade_cycle";
 
 export const MaisonMatronHero = () => (
   <AutoplayVideo
@@ -84,6 +85,21 @@ export const ClubArmchair = () => (
       sizes="100vw"
     />
   </figure>
+);
+
+export const VenetianBlindsThroughTheDay = () => (
+  <CrossfadeCycle
+    sources={[
+      "/visuals/stores-venitiens-plein-soleil.jpg",
+      "/visuals/stores-venitiens-fin-de-journee.jpg",
+      "/visuals/stores-venitiens-soir.jpg",
+    ]}
+    still={1}
+    width={2040}
+    height={1352}
+    alt="Trois stores vénitiens en bois foncé, lames fermées, devant une grande baie : la lumière passe entre les lames, blanche en plein soleil, dorée en fin de journée, bleue le soir."
+    sizes="100vw"
+  />
 );
 
 export const CopperCurtains = () => (

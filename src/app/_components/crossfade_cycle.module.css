@@ -1,0 +1,50 @@
+.cycle > :nth-child(2) {
+  will-change: opacity;
+  animation: second 4.5s ease-in-out infinite;
+}
+
+.cycle > :nth-child(3) {
+  will-change: opacity;
+  animation: third 4.5s ease-in-out infinite;
+}
+
+@keyframes second {
+  0%,
+  20% {
+    opacity: 0;
+  }
+  33.333%,
+  70% {
+    opacity: 1;
+  }
+  70.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes third {
+  0%,
+  53.333% {
+    opacity: 0;
+  }
+  66.667%,
+  86.667% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cycle > * {
+    animation: none;
+    opacity: 0;
+  }
+
+  .cycle > :first-child,
+  .cycle > [data-still] {
+    opacity: 1;
+  }
+}
