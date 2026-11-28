@@ -1,6 +1,7 @@
 import { landing_metadata } from "@/lib/landing_metadata";
 import { structured_data_json } from "@/lib/structured_data";
 import { BookingSection } from "../_components/booking_section";
+import { BulletList } from "../_components/bullet_list";
 import { CallToActionDetail } from "../_components/call_to_action";
 import { CenteredSection } from "../_components/centered_section";
 import { ExpertiseActions } from "../_components/expertise_actions";
@@ -20,8 +21,13 @@ import { OfferSection, OfferTitle } from "../_components/offer_section";
 import { ReviewsSection } from "../_components/reviews_section";
 import { SectionSeparator } from "../_components/section_separator";
 import { ServicesSection } from "../_components/services_section";
+import { SideVisualSection } from "../_components/side_visual_section";
 import { SectionSubtitle, SectionTitle } from "../_components/typography";
-import { CurtainWrappedGifts, LouisPhilippeSofa } from "../_components/visuals";
+import {
+  CurtainWrappedGifts,
+  LionHeadSofa,
+  LouisPhilippeSofa,
+} from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
 
@@ -69,13 +75,18 @@ const SofaRestoration = () => (
       <div className="page-width flex flex-col gap-24 py-12 lg:gap-32 lg:py-16 [&_:is(p,li):not(.font-display)]:text-gray-600">
         <CenteredSection>
           <SectionTitle>
-            Vous cherchez un canapé à votre image, or…
+            Vous cherchez à retrouver le confort de votre canapé ?
           </SectionTitle>
-          <p>
-            L'enseigne vous propose d'en racheter un, pas de garder le vôtre.
-          </p>
-          <p>Le tissu se choisit sur un échantillon, loin de votre salon.</p>
-          <p>Une assise affaissée ne se rattrape pas avec des coussins.</p>
+          <BulletList>
+            <li>
+              Sélectionner le tissu parfait parmi nos vastes collections ?
+            </li>
+            <li>
+              Qu'on s'occupe de tout pour vous, de la visite chez vous au retour
+              de votre canapé ?
+            </li>
+          </BulletList>
+          <SectionSubtitle>Vous êtes au bon endroit.</SectionSubtitle>
         </CenteredSection>
 
         <SectionSeparator />
@@ -89,20 +100,57 @@ const SofaRestoration = () => (
             Transformez votre salon avec un canapé à votre image.
           </SectionTitle>
           <p>
-            Nous nous occupons de tout, du rembourrage de l'assise au tissu qui
-            l'habille.
-          </p>
-          <SectionSubtitle>
-            Un rembourrage refait, en tissu comme en cuir
-          </SectionSubtitle>
-          <p>
-            Vous choisissez le tissu de votre canapé chez vous, parmi des
-            milliers.
-          </p>
-          <p>
-            Nous restaurons, réparons ou refaisons aussi votre canapé en cuir.
+            Nous nous occupons de tout, du rembourrage de l'assise au tissu ou
+            au cuir qui l'habille.
           </p>
         </WideVisualSection>
+
+        <SectionSeparator />
+
+        <div id="tissu">
+          <WideVisualSection
+            visual={<LionHeadSofa />}
+            action={<Actions tone="secondary" />}
+          >
+            <SectionTitle>Votre canapé en tissu, habillé de neuf</SectionTitle>
+            <p>
+              Nos tapissiers le retapissent dans le tissu que vous choisissez
+              chez vous, parmi des milliers.
+            </p>
+            <p>Nous le restaurons, le réparons ou en refaisons la garniture.</p>
+          </WideVisualSection>
+        </div>
+
+        <SectionSeparator />
+
+        <div id="cuir">
+          <SideVisualSection action={<Actions tone="secondary" />}>
+            <SectionTitle>
+              Votre canapé en cuir, restauré plutôt que remplacé
+            </SectionTitle>
+            <p>Nous restaurons, réparons ou refaisons votre canapé en cuir.</p>
+            <p>Vous gardez le canapé que vous aimez.</p>
+          </SideVisualSection>
+        </div>
+
+        <SectionSeparator />
+
+        <div id="rembourrage">
+          <SideVisualSection action={<Actions tone="secondary" />}>
+            <SectionTitle>
+              Le rembourrage de votre canapé, refait sous le tissu comme sous le
+              cuir
+            </SectionTitle>
+            <p>
+              Nous refaisons le rembourrage de votre canapé, son assise
+              comprise.
+            </p>
+            <p>
+              Puis nous le regarnissons, dans le tissu choisi avec vous ou dans
+              son cuir.
+            </p>
+          </SideVisualSection>
+        </div>
 
         <SectionSeparator />
 

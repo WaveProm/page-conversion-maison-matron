@@ -1,10 +1,10 @@
 import { landing_metadata } from "@/lib/landing_metadata";
 import { structured_data_json } from "@/lib/structured_data";
 import { BookingSection } from "../_components/booking_section";
+import { BulletList } from "../_components/bullet_list";
 import { CallToActionDetail } from "../_components/call_to_action";
 import { CenteredSection } from "../_components/centered_section";
 import { ExpertiseActions } from "../_components/expertise_actions";
-import { FabricsSection } from "../_components/fabrics_section";
 import { Footer } from "../_components/footer";
 import { HeritageSection } from "../_components/heritage_section";
 import {
@@ -20,6 +20,7 @@ import { OfferSection, OfferTitle } from "../_components/offer_section";
 import { ReviewsSection } from "../_components/reviews_section";
 import { SectionSeparator } from "../_components/section_separator";
 import { ServicesSection } from "../_components/services_section";
+import { SideVisualSection } from "../_components/side_visual_section";
 import { SectionSubtitle, SectionTitle } from "../_components/typography";
 import {
   CurtainWrappedGifts,
@@ -71,12 +72,17 @@ const CustomFurniture = () => (
     <Watermarked>
       <div className="page-width flex flex-col gap-24 py-12 lg:gap-32 lg:py-16 [&_:is(p,li):not(.font-display)]:text-gray-600">
         <CenteredSection>
-          <SectionTitle>
-            Vous cherchez le meuble à votre image, or…
-          </SectionTitle>
-          <p>L'enseigne décide jusqu'où va votre « sur-mesure ».</p>
-          <p>Le modèle qui vous plaît se retrouve déjà chez d'autres.</p>
-          <p>Personne ne vous dit d'où vient le bois, ni qui l'a travaillé.</p>
+          <SectionTitle>Vous cherchez le meuble de vos rêves ?</SectionTitle>
+          <BulletList>
+            <li>
+              L'avoir à vos mesures, dans le bois et le tissu de votre choix ?
+            </li>
+            <li>
+              Qu'on s'occupe de tout pour vous, de la visite chez vous à la
+              fabrication ?
+            </li>
+          </BulletList>
+          <SectionSubtitle>Vous êtes au bon endroit.</SectionSubtitle>
         </CenteredSection>
 
         <SectionSeparator />
@@ -85,10 +91,7 @@ const CustomFurniture = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection
-          visual={<FiveChairs />}
-          action={<Actions tone="secondary" />}
-        >
+        <WideVisualSection action={<Actions tone="secondary" />}>
           <SectionTitle>
             Transformez votre intérieur avec un meuble à votre image.
           </SectionTitle>
@@ -96,20 +99,24 @@ const CustomFurniture = () => (
             Nous le fabriquons à vos mesures, dans les bois et les tissus que
             vous choisissez.
           </p>
-          <SectionSubtitle>Des chaises assemblées à l'ancienne</SectionSubtitle>
-          <p>
-            Le dernier chaisier de Suisse, avec qui nous travaillons, les
-            assemble dans des bois locaux.
-          </p>
-          <p>
-            Les chaises et le canapé de nos photos, nous les avons tapissés :
-            nous fabriquons les mêmes sur mesure.
-          </p>
         </WideVisualSection>
 
         <SectionSeparator />
 
-        <FabricsSection action={<Actions tone="secondary" />} />
+        <SideVisualSection
+          visual={<FiveChairs />}
+          action={<Actions tone="secondary" />}
+        >
+          <SectionTitle>
+            Vos chaises assemblées par le dernier chaisier de Suisse
+          </SectionTitle>
+          <p>Nous travaillons avec lui pour chacune de vos chaises.</p>
+          <p>Il les assemble à l'ancienne, dans des bois de Suisse.</p>
+          <p>
+            Les chaises et le canapé de nos photos, nous les avons tapissés :
+            nous fabriquons les mêmes sur mesure.
+          </p>
+        </SideVisualSection>
 
         <SectionSeparator />
 
@@ -163,7 +170,7 @@ const CustomFurniture = () => (
           video={<CurtainWrappedGifts />}
           action={<Actions tone="paper" />}
         >
-          <OfferTitle>Black Friday : 15 % sur tous les tissus</OfferTitle>
+          <OfferTitle>Black Friday : traitement des bois offert</OfferTitle>
         </OfferSection>
 
         <SectionSeparator />

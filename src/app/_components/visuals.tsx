@@ -1,10 +1,12 @@
 import Image from "next/image";
 import { AutoplayVideo } from "@/components/autoplay_video";
 import five_chairs from "../../../public/visuals/5-chaises.jpg";
+import lion_head_sofa from "../../../public/visuals/canape-lions.jpg";
 import club_armchair from "../../../public/visuals/club-armchair.jpg";
 import louis_philippe_sofa from "../../../public/visuals/louis-philippe.jpg";
 import reel_poster from "../../../public/visuals/maison-matron-reel-poster.jpg";
 import copper_curtains from "../../../public/visuals/rideaux-cuivres-salon.jpg";
+import sewing_beads_poster from "../../../public/visuals/sewing-beads-poster.jpg";
 import genoa_velvet from "../../../public/visuals/velours-gene.jpg";
 import voltaire_poster from "../../../public/visuals/voltaire-orbital-macro-poster.jpg";
 import { CrossfadeCycle } from "./crossfade_cycle";
@@ -22,6 +24,15 @@ export const OceanView = () => (
   <AutoplayVideo
     src="/video/rideaux-sur-mesure-hero.mp4"
     poster="/video/rideaux-sur-mesure-hero-poster.avif"
+    cover
+    eager
+  />
+);
+
+export const SunlightThroughBlinds = () => (
+  <AutoplayVideo
+    src="/video/stores-sur-mesure-hero.mp4"
+    poster="/video/stores-sur-mesure-hero-poster.avif"
     cover
     eager
   />
@@ -62,6 +73,16 @@ export const LouisPhilippeSofa = () => (
     <Image
       src={louis_philippe_sofa}
       alt="Canapé Louis-Philippe en bois sculpté, dossier couronné d'une palmette et accoudoirs en volute, garni d'un tissu ivoire à rayures bordeaux et petits bouquets de fleurs, sur fond blanc."
+      sizes="100vw"
+    />
+  </figure>
+);
+
+export const LionHeadSofa = () => (
+  <figure>
+    <Image
+      src={lion_head_sofa}
+      alt="Canapé en bois sombre aux accoudoirs roulés terminés par des têtes de lion sculptées, garni d'un tissu orangé à fines rayures crème, sur fond blanc."
       sizes="100vw"
     />
   </figure>
@@ -117,4 +138,14 @@ export const CurtainWrappedGifts = () => (
     poster="/video/curtain-wrapped-gifts-poster.jpg"
     cover
   />
+);
+
+export const SewingBeads = () => (
+  <figure>
+    <AutoplayVideo
+      src="/visuals/sewing-beads.mp4"
+      poster={sewing_beads_poster}
+      label="Gros plan des mains d'une couturière qui coud, à l'aiguille, des perles et des paillettes sur un tissu gris."
+    />
+  </figure>
 );

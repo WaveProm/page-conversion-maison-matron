@@ -1,6 +1,7 @@
 import { landing_metadata } from "@/lib/landing_metadata";
 import { structured_data_json } from "@/lib/structured_data";
 import { BookingSection } from "../_components/booking_section";
+import { BulletList } from "../_components/bullet_list";
 import { CallToActionDetail } from "../_components/call_to_action";
 import { CenteredSection } from "../_components/centered_section";
 import { ExpertiseActions } from "../_components/expertise_actions";
@@ -19,8 +20,9 @@ import { OfferSection, OfferTitle } from "../_components/offer_section";
 import { ReviewsSection } from "../_components/reviews_section";
 import { SectionSeparator } from "../_components/section_separator";
 import { ServicesSection } from "../_components/services_section";
+import { SideVisualSection } from "../_components/side_visual_section";
 import { SectionSubtitle, SectionTitle } from "../_components/typography";
-import { CurtainWrappedGifts } from "../_components/visuals";
+import { CurtainWrappedGifts, FiveChairs } from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
 
@@ -67,13 +69,16 @@ const FurnitureRestoration = () => (
       <div className="page-width flex flex-col gap-24 py-12 lg:gap-32 lg:py-16 [&_:is(p,li):not(.font-display)]:text-gray-600">
         <CenteredSection>
           <SectionTitle>
-            Vous cherchez à faire revivre un meuble ancien, or…
+            Vous cherchez à faire restaurer votre meuble ancien ?
           </SectionTitle>
-          <p>Vous ne savez pas à quel ébéniste le confier.</p>
-          <p>
-            Vous craignez un travail bâclé sur une pièce qui ne se remplace pas.
-          </p>
-          <p>Vous ne voulez surtout pas le jeter.</p>
+          <BulletList>
+            <li>Le retrouver solide et beau ?</li>
+            <li>
+              Qu'on s'occupe de tout pour vous, de l'expertise chez vous à la
+              restauration ?
+            </li>
+          </BulletList>
+          <SectionSubtitle>Vous êtes au bon endroit.</SectionSubtitle>
         </CenteredSection>
 
         <SectionSeparator />
@@ -103,6 +108,21 @@ const FurnitureRestoration = () => (
             servir de nouveau.
           </p>
         </WideVisualSection>
+
+        <SectionSeparator />
+
+        <SideVisualSection
+          visual={<FiveChairs />}
+          action={<Actions tone="secondary" />}
+        >
+          <SectionTitle>
+            Profitez aussi du dernier chaisier de Suisse
+          </SectionTitle>
+          <p>Nous travaillons avec lui.</p>
+          <p>
+            Il assemble chaque chaise à l'ancienne, dans des bois de Suisse.
+          </p>
+        </SideVisualSection>
 
         <SectionSeparator />
 
