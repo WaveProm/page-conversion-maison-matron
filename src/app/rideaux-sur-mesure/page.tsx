@@ -25,7 +25,7 @@ import { SectionSubtitle, SectionTitle } from "../_components/typography";
 import {
   BlackFloralPrint,
   CurtainWrappedGifts,
-  OceanView,
+  IvoryDamaskCurtain,
   RedTreePrint,
   SewingBeads,
   TerracottaVelvetCurtains,
@@ -51,7 +51,7 @@ const Actions = ({ tone }: actions_props) => (
 
 const CustomCurtains = () => (
   <main>
-    <Hero video={<OceanView />}>
+    <Hero video={<IvoryDamaskCurtain />}>
       <HeroOvertitle>
         Artisan tapissier et courtepointière depuis 4 générations
       </HeroOvertitle>
