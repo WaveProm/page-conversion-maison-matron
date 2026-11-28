@@ -21,7 +21,10 @@ import { ReviewsSection } from "../_components/reviews_section";
 import { SectionSeparator } from "../_components/section_separator";
 import { ServicesSection } from "../_components/services_section";
 import { SectionSubtitle, SectionTitle } from "../_components/typography";
-import { CurtainWrappedGifts } from "../_components/visuals";
+import {
+  CurtainWrappedGifts,
+  SunlightThroughBlinds,
+} from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
 
@@ -43,7 +46,7 @@ const Actions = ({ tone }: actions_props) => (
 
 const CustomBlinds = () => (
   <main>
-    <Hero video={null}>
+    <Hero video={<SunlightThroughBlinds />}>
       <HeroOvertitle>
         Artisans du store d'intérieur, de la visite à la pose
       </HeroOvertitle>

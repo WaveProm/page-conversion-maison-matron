@@ -28,6 +28,15 @@ export const OceanView = () => (
   />
 );
 
+export const SunlightThroughBlinds = () => (
+  <AutoplayVideo
+    src="/video/stores-sur-mesure-hero.mp4"
+    poster="/video/stores-sur-mesure-hero-poster.avif"
+    cover
+    eager
+  />
+);
+
 export const FiveChairs = () => (
   <figure>
     <Image
