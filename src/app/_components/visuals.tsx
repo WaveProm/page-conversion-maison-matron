@@ -146,6 +146,18 @@ export const VenetianBlindsThroughTheDay = () => (
   />
 );
 
+export const VenetianSlatsEveningCloseUp = () => (
+  <figure>
+    <Image
+      src="/visuals/stores-venitiens-lames-soir.jpg"
+      width={2040}
+      height={1360}
+      alt="Gros plan des lames en bois foncé d'un store vénitien le soir, une lumière chaude sur leur bord, le ciel bleu du soir entre les lames."
+      sizes="100vw"
+    />
+  </figure>
+);
+
 export const RomanBlindsEvening = () => (
   <figure>
     <Image
