@@ -25,6 +25,7 @@ import { SectionSubtitle, SectionTitle } from "../_components/typography";
 import {
   CurtainWrappedGifts,
   SunlightThroughBlinds,
+  VenetianBlindsThroughTheDay,
 } from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
@@ -84,7 +85,10 @@ const CustomBlinds = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection action={<Actions tone="secondary" />}>
+        <WideVisualSection
+          action={<Actions tone="secondary" />}
+          visual={<VenetianBlindsThroughTheDay />}
+        >
           <SectionTitle>
             Transformez vos fenêtres en élément de votre décor.
           </SectionTitle>

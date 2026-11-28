@@ -9,6 +9,7 @@ import copper_curtains from "../../../public/visuals/rideaux-cuivres-salon.jpg";
 import sewing_beads_poster from "../../../public/visuals/sewing-beads-poster.jpg";
 import genoa_velvet from "../../../public/visuals/velours-gene.jpg";
 import voltaire_poster from "../../../public/visuals/voltaire-orbital-macro-poster.jpg";
+import { CrossfadeCycle } from "./crossfade_cycle";
 
 export const MaisonMatronHero = () => (
   <AutoplayVideo
@@ -129,6 +130,20 @@ export const ClubArmchair = () => (
       sizes="100vw"
     />
   </figure>
+);
+
+export const VenetianBlindsThroughTheDay = () => (
+  <CrossfadeCycle
+    sources={[
+      "/visuals/stores-venitiens-salon-jour.jpg",
+      "/visuals/stores-venitiens-salon-soir.jpg",
+    ]}
+    still={0}
+    width={3472}
+    height={2304}
+    alt="Un salon aux murs clairs, un canapé en velours bordeaux et une table basse en marbre noir devant une rangée de stores vénitiens en bois foncé, lames fermées : le jour, la lumière passe entre les lames et s'étire au sol ; le soir, les stores luisent d'une lumière chaude."
+    sizes="100vw"
+  />
 );
 
 export const CopperCurtains = () => (

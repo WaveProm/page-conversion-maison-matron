@@ -1,0 +1,26 @@
+@media (prefers-reduced-motion: no-preference) {
+  .cycle > :nth-child(2) {
+    will-change: opacity;
+    animation: second 3s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cycle > :not(:first-child, [data-still]) {
+    opacity: 0;
+  }
+}
+
+@keyframes second {
+  0%,
+  30% {
+    opacity: 0;
+  }
+  50%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
