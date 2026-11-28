@@ -140,7 +140,13 @@ const SofaRestoration = () => (
 
         <SectionSeparator />
 
-        <FabricsSection action={<Actions tone="secondary" />} />
+        <FabricsSection action={<Actions tone="secondary" />}>
+          <SectionTitle>
+            Choisissez le tissu ou le cuir de votre canapé
+          </SectionTitle>
+          <p>Nous venons chez vous avec nos collections de tissus.</p>
+          <p>Votre canapé est en cuir ? Nous le restaurons dans son cuir.</p>
+        </FabricsSection>
 
         <SectionSeparator />
 
