@@ -97,7 +97,11 @@ const Home = () => (
 
         <SectionSeparator />
 
-        <FabricsSection visual={<MaisonMatronReel />} action={<Actions />} />
+        <FabricsSection visual={<MaisonMatronReel />} action={<Actions />}>
+          <SectionTitle>Profitez de milliers de tissus</SectionTitle>
+          <p>Nos collections voyagent avec nous jusqu'à chez vous.</p>
+          <p>Ce que vous voulez, nous l'avons.</p>
+        </FabricsSection>
 
         <SectionSeparator />
 

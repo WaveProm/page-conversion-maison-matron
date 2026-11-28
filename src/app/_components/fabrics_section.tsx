@@ -11,15 +11,20 @@ import pierre_frey_logo from "../../../public/fabric-logos/pierre-frey.svg";
 import ralph_lauren_logo from "../../../public/fabric-logos/ralph-lauren.svg";
 import { LogoGrid } from "./logo_grid";
 import { SideVisualSection } from "./side_visual_section";
-import { SectionTitle } from "./typography";
 
-type fabrics_section_props = { visual?: ReactNode; action: ReactNode };
+type fabrics_section_props = {
+  visual?: ReactNode;
+  action: ReactNode;
+  children: ReactNode;
+};
 
-export const FabricsSection = ({ visual, action }: fabrics_section_props) => (
+export const FabricsSection = ({
+  visual,
+  action,
+  children,
+}: fabrics_section_props) => (
   <SideVisualSection visual={visual} action={action}>
-    <SectionTitle>Profitez de milliers de tissus</SectionTitle>
-    <p>Nos collections voyagent avec nous jusqu'à chez vous.</p>
-    <p>Ce que vous voulez, nous l'avons.</p>
+    {children}
     <LogoGrid>
       <Image
         src={hermes_logo}

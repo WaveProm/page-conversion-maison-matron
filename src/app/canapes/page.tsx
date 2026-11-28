@@ -94,7 +94,7 @@ const SofaRestoration = () => (
 
         <SectionSeparator />
 
-        <WideVisualSection action={<Actions tone="secondary" />}>
+        <CenteredSection>
           <SectionTitle>
             Transformez votre salon avec un canapé à votre image.
           </SectionTitle>
@@ -102,7 +102,10 @@ const SofaRestoration = () => (
             Nous nous occupons de tout, du rembourrage de l'assise au tissu ou
             au cuir qui l'habille.
           </p>
-        </WideVisualSection>
+          <div className="mt-8 lg:mt-12">
+            <Actions tone="secondary" />
+          </div>
+        </CenteredSection>
 
         <SectionSeparator />
 
@@ -137,7 +140,13 @@ const SofaRestoration = () => (
 
         <SectionSeparator />
 
-        <FabricsSection action={<Actions tone="secondary" />} />
+        <FabricsSection action={<Actions tone="secondary" />}>
+          <SectionTitle>
+            Choisissez le tissu ou le cuir de votre canapé
+          </SectionTitle>
+          <p>Nous venons chez vous avec nos collections de tissus.</p>
+          <p>Votre canapé est en cuir ? Nous le restaurons dans son cuir.</p>
+        </FabricsSection>
 
         <SectionSeparator />
 

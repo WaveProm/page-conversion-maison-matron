@@ -129,7 +129,11 @@ const CustomBlinds = () => (
 
         <SectionSeparator />
 
-        <FabricsSection action={<Actions tone="secondary" />} />
+        <FabricsSection action={<Actions tone="secondary" />}>
+          <SectionTitle>Profitez de milliers de tissus</SectionTitle>
+          <p>Nos collections voyagent avec nous jusqu'à chez vous.</p>
+          <p>Ce que vous voulez, nous l'avons.</p>
+        </FabricsSection>
 
         <SectionSeparator />
 
