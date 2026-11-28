@@ -68,6 +68,18 @@ export const GenoaVelvet = () => (
   </figure>
 );
 
+export const RedTreePrint = () => (
+  <figure>
+    <Image
+      src="/visuals/tissu-arbres-rouge.jpg"
+      width={2160}
+      height={1440}
+      alt="Gros plan d'un tissu imprimé sur fond rouge vif : deux grands arbres aux troncs blancs étirés en volutes, feuillages blancs et orange, coraux bleu outremer et bleu ciel."
+      sizes="100vw"
+    />
+  </figure>
+);
+
 export const TeakSideboard = () => (
   <figure>
     <Image

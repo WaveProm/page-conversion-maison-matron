@@ -25,8 +25,8 @@ import { SectionSubtitle, SectionTitle } from "../_components/typography";
 import {
   CopperCurtains,
   CurtainWrappedGifts,
-  GenoaVelvet,
   OceanView,
+  RedTreePrint,
   SewingBeads,
 } from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
@@ -120,7 +120,7 @@ const CustomCurtains = () => (
         <SectionSeparator />
 
         <WideVisualSection
-          visual={<GenoaVelvet />}
+          visual={<RedTreePrint />}
           action={<Actions tone="secondary" />}
         >
           <SectionTitle>L'atelier vient à vous, et c'est offert</SectionTitle>
