@@ -49,6 +49,15 @@ export const SunlightThroughBlinds = () => (
   />
 );
 
+export const TuftedLeatherSalon = () => (
+  <AutoplayVideo
+    src="/video/canapes-hero.mp4"
+    poster="/video/canapes-hero-poster.avif"
+    cover
+    eager
+  />
+);
+
 export const FiveChairs = () => (
   <figure>
     <Image
@@ -142,6 +151,18 @@ export const LionHeadSofa = () => (
     <Image
       src={lion_head_sofa}
       alt="Canapé en bois sombre aux accoudoirs roulés terminés par des têtes de lion sculptées, garni d'un tissu orangé à fines rayures crème, sur fond blanc."
+      sizes="100vw"
+    />
+  </figure>
+);
+
+export const OxbloodChesterfield = () => (
+  <figure>
+    <Image
+      src="/visuals/canape-chesterfield-cuir.jpg"
+      width={2752}
+      height={1536}
+      alt="Canapé Chesterfield en cuir bordeaux patiné, capitonné sur le dossier, l'assise et la façade, aux accoudoirs roulés bordés de clous, sur un fond de studio gris sombre."
       sizes="100vw"
     />
   </figure>
