@@ -5,7 +5,7 @@ import { BulletList } from "../_components/bullet_list";
 import { CallToActionDetail } from "../_components/call_to_action";
 import { CenteredSection } from "../_components/centered_section";
 import { ExpertiseActions } from "../_components/expertise_actions";
-import { FabricsSection } from "../_components/fabrics_section";
+import { FabricLogos } from "../_components/fabric_logos";
 import { Footer } from "../_components/footer";
 import { HeritageSection } from "../_components/heritage_section";
 import {
@@ -27,6 +27,7 @@ import {
   RomanBlindsEvening,
   SunlightThroughBlinds,
   VenetianBlindsThroughTheDay,
+  VenetianSlatsEveningCloseUp,
 } from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
@@ -88,7 +89,12 @@ const CustomBlinds = () => (
 
         <WideVisualSection
           action={<Actions tone="secondary" />}
-          visual={<VenetianBlindsThroughTheDay />}
+          visual={
+            <div className="grid gap-4">
+              <VenetianBlindsThroughTheDay />
+              <VenetianSlatsEveningCloseUp />
+            </div>
+          }
         >
           <SectionTitle>
             Transformez vos fenêtres en élément de votre décor.
@@ -129,7 +135,19 @@ const CustomBlinds = () => (
 
         <SectionSeparator />
 
-        <FabricsSection action={<Actions tone="secondary" />} />
+        <CenteredSection>
+          <SectionTitle>
+            Choisissez le tissu ou le bois de vos stores, chez vous
+          </SectionTitle>
+          <p>Nous venons avec nos tissus et nos bois.</p>
+          <p>
+            Vous les voyez et les touchez devant vos fenêtres, avant de choisir.
+          </p>
+          <FabricLogos />
+          <div className="mt-8 lg:mt-12">
+            <Actions tone="secondary" />
+          </div>
+        </CenteredSection>
 
         <SectionSeparator />
 
