@@ -23,12 +23,12 @@ import { SectionSeparator } from "../_components/section_separator";
 import { ServicesSection } from "../_components/services_section";
 import { SectionSubtitle, SectionTitle } from "../_components/typography";
 import {
+  BlackDamaskCurtain,
   BlackFloralPrint,
   CurtainWrappedGifts,
   IvoryDamaskCurtain,
   RedTreePrint,
   SewingBeads,
-  TerracottaVelvetCurtains,
 } from "../_components/visuals";
 import { Watermarked } from "../_components/watermarked";
 import { WideVisualSection } from "../_components/wide_visual_section";
@@ -91,7 +91,7 @@ const CustomCurtains = () => (
         <SectionSeparator />
 
         <WideVisualSection
-          visual={<TerracottaVelvetCurtains />}
+          visual={<BlackDamaskCurtain />}
           action={<Actions tone="secondary" />}
         >
           <SectionTitle>

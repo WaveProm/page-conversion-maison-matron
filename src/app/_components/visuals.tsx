@@ -236,6 +236,18 @@ export const TerracottaVelvetCurtains = () => (
   </figure>
 );
 
+export const BlackDamaskCurtain = () => (
+  <figure>
+    <Image
+      src="/visuals/rideau-damas-noir.jpg"
+      width={2752}
+      height={1536}
+      alt="Un rideau en damas noir à grands motifs baroques champagne, tombant en plis profonds et drapé sur un bloc de béton où se dresse un chandelier argenté à cinq bougies noires allumées, devant un mur de béton brut."
+      sizes="100vw"
+    />
+  </figure>
+);
+
 export const CurtainWrappedGifts = () => (
   <AutoplayVideo
     src="/video/curtain-wrapped-gifts.mp4"
