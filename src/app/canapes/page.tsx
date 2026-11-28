@@ -1,6 +1,7 @@
 import { landing_metadata } from "@/lib/landing_metadata";
 import { structured_data_json } from "@/lib/structured_data";
 import { BookingSection } from "../_components/booking_section";
+import { BulletList } from "../_components/bullet_list";
 import { CallToActionDetail } from "../_components/call_to_action";
 import { CenteredSection } from "../_components/centered_section";
 import { ExpertiseActions } from "../_components/expertise_actions";
@@ -74,13 +75,18 @@ const SofaRestoration = () => (
       <div className="page-width flex flex-col gap-24 py-12 lg:gap-32 lg:py-16 [&_:is(p,li):not(.font-display)]:text-gray-600">
         <CenteredSection>
           <SectionTitle>
-            Vous cherchez un canapé à votre image, or…
+            Vous cherchez à retrouver le confort de votre canapé ?
           </SectionTitle>
-          <p>
-            L'enseigne vous propose d'en racheter un, pas de garder le vôtre.
-          </p>
-          <p>Le tissu se choisit sur un échantillon, loin de votre salon.</p>
-          <p>Une assise affaissée ne se rattrape pas avec des coussins.</p>
+          <BulletList>
+            <li>
+              Sélectionner le tissu parfait parmi nos vastes collections ?
+            </li>
+            <li>
+              Qu'on s'occupe de tout pour vous, de la visite chez vous au retour
+              de votre canapé ?
+            </li>
+          </BulletList>
+          <SectionSubtitle>Vous êtes au bon endroit.</SectionSubtitle>
         </CenteredSection>
 
         <SectionSeparator />
