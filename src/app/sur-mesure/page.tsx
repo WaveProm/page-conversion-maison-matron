@@ -50,9 +50,7 @@ const Actions = ({ tone }: actions_props) => (
 const CustomFurniture = () => (
   <main>
     <Hero video={null}>
-      <HeroOvertitle>
-        Ébénistes et tapissiers, de la visite à la fabrication
-      </HeroOvertitle>
+      <HeroOvertitle>Artisan ébéniste depuis 4 générations</HeroOvertitle>
       <HeroTitle>
         Meubles et chaises sur mesure à Genève et Vaud, depuis 1921
       </HeroTitle>

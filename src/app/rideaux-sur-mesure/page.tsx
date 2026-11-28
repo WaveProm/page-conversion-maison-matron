@@ -52,7 +52,7 @@ const CustomCurtains = () => (
   <main>
     <Hero video={<OceanView />}>
       <HeroOvertitle>
-        Tapissiers et courtepointières, de la visite à la pose
+        Artisan tapissier et courtepointière depuis 4 générations
       </HeroOvertitle>
       <HeroTitle>Rideaux sur mesure à Genève et Vaud, depuis 1921</HeroTitle>
       <HeroLead>

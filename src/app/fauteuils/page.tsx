@@ -53,7 +53,7 @@ const ArmchairsAndChairs = () => (
   <main>
     <Hero video={<MaisonMatronHero />}>
       <HeroOvertitle>
-        Tapissiers et ébénistes, de la visite à la restitution
+        Artisan tapissier et ébéniste depuis 4 générations
       </HeroOvertitle>
       <HeroTitle>
         Restauration de fauteuils et de chaises à Genève et Vaud,
